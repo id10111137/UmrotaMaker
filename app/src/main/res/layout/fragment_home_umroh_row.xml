@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal"
+    android:padding="@dimen/m_10dp">
+
+
+    <ImageView
+        android:id="@+id/id_img_umroh"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_home" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_nama_perusahaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pt. Ganda Wijaya Group" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_address" />
+
+
+            <TextView
+                android:id="@+id/id_alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gegegrkalong Tonggoh" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_service" />
+
+            <TextView
+                android:id="@+id/id_layanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Umroh dan Hajji" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_airplane" />
+
+            <TextView
+                android:id="@+id/id_penerbangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 500/Month" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

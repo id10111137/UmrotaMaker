@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:padding="@dimen/m_10dp">
+
+    <EditText
+        android:id="@+id/id_cari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/m_10dp"
+        android:layout_marginTop="@dimen/m_10dp"
+        android:background="@drawable/edt_form"
+        android:drawableRight="@drawable/ic_search"
+        android:hint="Cari Perusahaan" />
+
+    <ListView
+        android:id="@+id/id_lv_umroh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

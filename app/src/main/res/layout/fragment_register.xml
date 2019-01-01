@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/m_10dp">
+
+
+        <TextView
+            android:layout_marginTop="@dimen/m_30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name" />
+
+        <EditText
+            android:id="@+id/id_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GandaWijaya@ymail.com"
+            android:inputType="text" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Ktp" />
+
+        <EditText
+            android:id="@+id/id_noktp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="73298732 xxxx..."
+            android:inputType="phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone" />
+
+        <EditText
+            android:id="@+id/id_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="081821xxxx..."
+            android:inputType="phone" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/id_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GandaWijaya@ymail.com"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/id_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="************"
+            android:inputType="textPassword" />
+
+
+        <LinearLayout
+            android:id="@+id/id_repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Register"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/m_15dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OR"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/id_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:text="Facebook Register"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/m_15dp" />
+
+
+            <ImageView
+                android:layout_width="@dimen/m_30dp"
+                android:layout_height="@dimen/m_30dp"
+                android:src="@drawable/ic_fb" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+

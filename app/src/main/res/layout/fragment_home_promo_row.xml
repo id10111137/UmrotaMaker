@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal"
+    android:padding="@dimen/m_10dp">
+
+
+    <ImageView
+        android:id="@+id/id_img_home"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_home" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_discount" />
+
+            <TextView
+                android:id="@+id/id_nilai_discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Discount 10%" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_address" />
+
+            <TextView
+                android:id="@+id/id_perusahaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pt. Ganda Wijaya" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_depart" />
+
+            <TextView
+                android:id="@+id/id_keberangkatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="28/10/2018" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/m_20dp"
+                android:layout_height="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_5dp"
+                android:src="@drawable/ic_price" />
+
+            <TextView
+                android:id="@+id/id_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="400 IDR" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:id="@+id/id_ly_star"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
