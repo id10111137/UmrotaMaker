@@ -4,21 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.R;
-import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
-import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_Booking;
+import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_PreBoking;
+import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_AMyProfil;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_DCompany;
-import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_DCompany;
-import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
 
 import java.util.ArrayList;
 
@@ -70,7 +66,7 @@ public class Activity_DCompany extends AppCompatActivity {
         id_lv_dCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                intent = new Intent(getApplicationContext(), Activity_Booking.class);
+                intent = new Intent(getApplicationContext(), Activity_PreBoking.class);
                 intent.putExtra("company_no", adapter_dCompany.getItem(position).getCompanyNamber());
                 startActivity(intent);
             }

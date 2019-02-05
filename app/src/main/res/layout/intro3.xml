@@ -33,6 +33,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:src="@drawable/ic_discount"/>
+
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"

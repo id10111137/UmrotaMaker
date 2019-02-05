@@ -8,19 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
-import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_Booking;
-import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
+import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_PreBoking;
+import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_AMyProfil;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Promo;
-import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
-import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
 
 import java.util.ArrayList;
 
@@ -76,7 +72,7 @@ public class Fragment_Home_Promo extends Fragment {
         id_lv_promo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                intent = new Intent(getContext(), Activity_Booking.class);
+                intent = new Intent(getContext(), Activity_PreBoking.class);
                 intent.putExtra("company_no", adapter_promo.getItem(position).getNama_Perusahaan());
                 startActivity(intent);
             }

@@ -95,11 +95,14 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/m_15dp" />
 
-
-            <ImageView
+            <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/icon"
                 android:layout_width="@dimen/m_30dp"
                 android:layout_height="@dimen/m_30dp"
-                android:src="@drawable/ic_fb" />
+                android:scaleType="center"
+                app:materialIcon="facebook_box"
+                app:materialIconColor="@color/colorWhite"
+                app:materialIconSize="@dimen/m_30dp" />
         </LinearLayout>
 
 

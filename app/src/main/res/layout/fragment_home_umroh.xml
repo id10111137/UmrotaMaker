@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/m_10dp"
         android:background="@drawable/edt_form"
+        android:inputType="textAutoComplete|textAutoCorrect"
         android:drawableRight="@drawable/ic_search"
         android:hint="Cari Perusahaan" />
 

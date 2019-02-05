@@ -12,7 +12,6 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_home" />
 
-
     <TextView
         android:id="@+id/id_nama_perusahaan"
         android:layout_width="wrap_content"
@@ -46,49 +45,66 @@
         android:orientation="horizontal"
         android:padding="@dimen/m_10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/m_5dp"
-            android:src="@drawable/ic_address"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_hotel"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="hotel"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_agent"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_flight"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="airplane_takeoff"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/m_5dp"
-            android:src="@drawable/ic_shoping"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_travel"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="wallet_travel"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/m_5dp"
-            android:src="@drawable/ic_airplane"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_food"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="food_variant"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/m_5dp"
-            android:src="@drawable/ic_menu_gallery"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp" />
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_guiden"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="account_box"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
+
+        <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_agent"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_marginRight="@dimen/m_10dp"
+            android:scaleType="center"
+            app:materialIcon="store"
+            app:materialIconColor="@color/colorAccent"
+            app:materialIconSize="@dimen/m_30dp" />
+
 
     </LinearLayout>
 

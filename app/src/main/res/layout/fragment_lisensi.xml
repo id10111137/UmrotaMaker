@@ -13,12 +13,18 @@
         android:id="@+id/id_tv_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/m_20dp"
-        android:gravity="center"
+        android:layout_marginBottom="@dimen/m_5dp"
+        android:gravity="left"
         android:text="Legalitas Perusahaan"
         android:textSize="@dimen/m_15dp"
         android:textStyle="bold" />
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/m_10dp"
+        android:background="@color/colorLightBlueSlow" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,19 +33,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="Name Perusahaan"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text=" Pt. Asakinah Warohmah"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
@@ -50,19 +59,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="Alamat"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text=" Jl.Margona Raya Nomor 102"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
@@ -73,19 +85,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="No SIUP"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text=" 1728318018290830928"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
@@ -96,9 +111,10 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="Owner "
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,7 +124,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:textSize="12dp"
+            android:text=" Tatang Roswandi Ganda Wijaya" />
 
     </LinearLayout>
 
@@ -119,19 +136,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="No. Tlp"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text=" 0896780002621"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
@@ -142,19 +162,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="Email"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text="id.10111137@gmail.com"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
@@ -165,19 +188,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="No SIUP" />
+            android:text="Tgl Pengesahan"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=":" />
+            android:text=":"
+            android:textSize="12dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" 1728318018290830928" />
+            android:text=" 2019-january-2019" />
 
     </LinearLayout>
 

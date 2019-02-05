@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <group android:checkableBehavior="single"
         android:id="@+id/menuone">
         <item
             android:id="@+id/mSign"
             android:enabled="true"
+            app:materialIcon="wifi_off"
             android:icon="@drawable/ic_umroh"
             android:title="SignUp" />
         <item

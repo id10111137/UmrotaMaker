@@ -23,11 +23,15 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_hotel"
                 android:layout_width="@dimen/m_20dp"
                 android:layout_height="@dimen/m_20dp"
-                android:layout_marginRight="@dimen/m_5dp"
-                android:src="@drawable/ic_discount" />
+                android:layout_marginRight="@dimen/m_10dp"
+                android:scaleType="center"
+                app:materialIcon="presentation"
+                app:materialIconColor="@color/colorBlack"
+                app:materialIconSize="@dimen/m_30dp" />
 
             <TextView
                 android:id="@+id/id_nilai_discount"
@@ -38,18 +42,22 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:orientation="horizontal">
 
-            <ImageView
+
+            <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_work"
                 android:layout_width="@dimen/m_20dp"
                 android:layout_height="@dimen/m_20dp"
-                android:layout_marginRight="@dimen/m_5dp"
-                android:src="@drawable/ic_address" />
+                android:layout_marginRight="@dimen/m_10dp"
+                android:scaleType="center"
+                app:materialIcon="account_multiple_plus"
+                app:materialIconColor="@color/colorBlack"
+                app:materialIconSize="@dimen/m_30dp" />
 
             <TextView
                 android:id="@+id/id_perusahaan"
@@ -65,11 +73,17 @@
             android:gravity="left"
             android:orientation="horizontal">
 
-            <ImageView
+
+
+            <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_date"
                 android:layout_width="@dimen/m_20dp"
                 android:layout_height="@dimen/m_20dp"
-                android:layout_marginRight="@dimen/m_5dp"
-                android:src="@drawable/ic_depart" />
+                android:layout_marginRight="@dimen/m_10dp"
+                android:scaleType="center"
+                app:materialIcon="timer"
+                app:materialIconColor="@color/colorBlack"
+                app:materialIconSize="@dimen/m_20dp" />
 
             <TextView
                 android:id="@+id/id_keberangkatan"
@@ -79,18 +93,21 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:orientation="horizontal">
 
-            <ImageView
+            <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_price"
                 android:layout_width="@dimen/m_20dp"
                 android:layout_height="@dimen/m_20dp"
-                android:layout_marginRight="@dimen/m_5dp"
-                android:src="@drawable/ic_price" />
+                android:layout_marginRight="@dimen/m_10dp"
+                android:scaleType="center"
+                app:materialIcon="receipt"
+                app:materialIconColor="@color/colorBlack"
+                app:materialIconSize="@dimen/m_20dp" />
 
             <TextView
                 android:id="@+id/id_harga"
@@ -110,6 +127,5 @@
 
 
     </LinearLayout>
-
 
 </LinearLayout>

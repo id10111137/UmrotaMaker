@@ -32,12 +32,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".View.Booking.Activity.Activity_PreBoking"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".View.Home.Activity.Activity_DCompany"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".View.Booking.Activity.Activity_Booking"
+            android:name=".View.SignUp.Activity.Activity_AMyProfil"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
