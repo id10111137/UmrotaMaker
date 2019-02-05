@@ -103,7 +103,7 @@ public class Adapter_Umroh extends ArrayAdapter<Model_Umroh> {
             }
         });
 
-        viewHolder.id_nama_perusahaan.setText(dataModel.getNama_Perusahaan());
+        viewHolder.id_nama_perusahaan.setText("Wellcome To "+dataModel.getNama_Perusahaan());
         viewHolder.id_alamat.setText(dataModel.getAlamat());
         viewHolder.id_layanan.setText(dataModel.getLayanan());
         viewHolder.id_penerbangan.setText(dataModel.getTotalPenerbangan());

@@ -11,13 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/m_10dp"
-        android:layout_marginTop="@dimen/m_10dp"
         android:background="@drawable/edt_form"
         android:drawableRight="@drawable/ic_search"
         android:hint="Cari Perusahaan" />
 
     <ListView
         android:id="@+id/id_lv_umroh"
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

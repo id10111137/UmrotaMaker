@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tatangit.umrota_maker">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +29,7 @@
         <activity
             android:name=".View.AddChart.Activity.Activity_Chart"
             android:screenOrientation="portrait"
-            android:theme="@style/AppWhite" />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".View.Home.Activity.Activity_DCompany"
@@ -43,6 +45,52 @@
             android:name=".View.Home.Activity.Activity_InfoCompany"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.SignUp.Activity.Activity_Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Promo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Fasiltas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Corpo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Document"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Manasik"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Information.Activity.Activity_Info_Agent"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.SignUp.Activity.Activity_SiginUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Home.Activity.Activity_CompanyInfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
     </application>
 

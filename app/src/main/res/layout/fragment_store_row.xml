@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/id_image_store" />
+
+    <TextView
+        android:id="@+id/id_nama_toko"
+        android:textSize="@dimen/m_15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toko Bandung Jaya" />
+
+    <TextView
+        android:id="@+id/id_store_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alamat : Jl. Kebon Waru Kabupaten Bandung No 13" />
+
+    <TextView
+        android:id="@+id/id_store_jam_oprasional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jam Oprasional : Buka Jam 08:00 - 20:00" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="@dimen/m_10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/m_5dp"
+            android:src="@drawable/ic_address"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_agent"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="@dimen/m_5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shoping"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_airplane"
+            app:civ_border_color="#FFFFFF"
+            android:layout_marginRight="@dimen/m_5dp"
+            app:civ_border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_menu_gallery"
+            android:layout_marginRight="@dimen/m_5dp"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

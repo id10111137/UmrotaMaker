@@ -7,21 +7,12 @@
     android:padding="@dimen/m_10dp">
 
 
-    <EditText
-        android:id="@+id/id_cari_promo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/m_10dp"
-        android:background="@drawable/edt_form"
-        android:drawableRight="@drawable/ic_search"
-        android:hint="Cari Discount" />
-
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/m_5dp"
+        android:layout_marginBottom="@dimen/m_10dp"
         android:orientation="horizontal">
 
 
@@ -45,14 +36,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Keberangkatan"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorBlack" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="29-Jan-2018"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorBlack" />
 
             </LinearLayout>
 
@@ -85,14 +76,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Kedatangan"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorBlack" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="10-Febuary-2018"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorBlack" />
 
             </LinearLayout>
 
@@ -111,6 +102,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
         android:focusableInTouchMode="false" />
 
 

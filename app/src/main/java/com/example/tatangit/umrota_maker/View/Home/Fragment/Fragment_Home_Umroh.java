@@ -52,12 +52,10 @@ public class Fragment_Home_Umroh extends Fragment {
                              Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_home_umroh, container, false);
         ButterKnife.bind(this, root);
-
         toolbar = getActivity().findViewById(R.id.toolbar);
-
-
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("UMROH");
+
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_shoping));
         toolbar_iconView.setOnClickListener(new View.OnClickListener() {

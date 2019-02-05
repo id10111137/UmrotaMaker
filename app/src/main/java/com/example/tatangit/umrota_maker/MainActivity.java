@@ -4,27 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.Hellper.Config;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_Home;
 import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Information;
 import com.example.tatangit.umrota_maker.View.Intro.DefaultIntro;
-import com.example.tatangit.umrota_maker.View.SignUp.Fragment_SignUp;
+import com.example.tatangit.umrota_maker.View.Lisence.Fragment_Lisence;
+import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_SignUp;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -51,14 +48,14 @@ public class MainActivity extends AppCompatActivity
             Start Slider Into
          */
 
-        Thread t=new Thread(new Runnable() {
+        Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences sharedPreferences = getSharedPreferences(Config.FLAG, Context.MODE_PRIVATE);
-                if(sharedPreferences.getBoolean(Config.FLAG,true)){
-                    startActivity(new Intent(MainActivity.this,DefaultIntro.class));
-                    SharedPreferences.Editor e=sharedPreferences.edit();
-                    e.putBoolean(Config.FLAG,false);
+                if (sharedPreferences.getBoolean(Config.FLAG, true)) {
+                    startActivity(new Intent(MainActivity.this, DefaultIntro.class));
+                    SharedPreferences.Editor e = sharedPreferences.edit();
+                    e.putBoolean(Config.FLAG, false);
                     e.apply();
                 }
             }
@@ -81,19 +78,19 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         fragment = null;
@@ -107,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         goDestination(fragment);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

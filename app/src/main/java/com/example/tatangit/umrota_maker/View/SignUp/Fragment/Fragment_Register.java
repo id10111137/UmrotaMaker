@@ -1,4 +1,4 @@
-package com.example.tatangit.umrota_maker.View.SignUp;
+package com.example.tatangit.umrota_maker.View.SignUp.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;

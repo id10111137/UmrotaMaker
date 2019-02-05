@@ -57,9 +57,9 @@ public class Activity_DCompany extends AppCompatActivity {
         toolbar_iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                intent = new Intent(getApplicationContext(), Activity_InfoCompany.class);
-////                intent.putExtra("name_company",nameCompany);
-//                startActivity(intent);
+                intent = new Intent(getApplicationContext(), Activity_CompanyInfo.class);
+                intent.putExtra("name_company",nameCompany);
+                startActivity(intent);
                 }
         });
 

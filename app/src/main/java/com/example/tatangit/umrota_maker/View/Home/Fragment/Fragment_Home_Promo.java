@@ -36,8 +36,6 @@ public class Fragment_Home_Promo extends Fragment {
     CircleImageView toolbar_iconView;
     View root;
 
-    @BindView(R.id.id_cari_promo)
-    EditText id_cari_promo;
 
     @BindView(R.id.id_lv_promo)
     ListView id_lv_promo;
@@ -71,7 +69,6 @@ public class Fragment_Home_Promo extends Fragment {
             }
         });
 
-
         DummyData();
         adapter_promo = new Adapter_Promo(model_promos, getContext());
         id_lv_promo.setAdapter(adapter_promo);
@@ -89,12 +86,12 @@ public class Fragment_Home_Promo extends Fragment {
 
     private void DummyData() {
         model_promos = new ArrayList<>();
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Samurco", "2018/10/2018", "300k", "Bansung",3));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "20%", "Pt. Gugu", "2018/10/2018", "200k", "Jakarta",4));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Anday", "2018/10/2018", "100K", "Jakarta",5));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "7%", "Pt. Ramus", "2018/10/2018", "250K", "Jakarta",4));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Turu", "2018/10/2018", "230k", "Jakarta",2));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Solusi", "2018/10/2018", "100k", "Ciamis",3));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Samurco", "2018/10/2018", "300k", "Bansung", 3));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "20%", "Pt. Gugu", "2018/10/2018", "200k", "Jakarta", 4));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Anday", "2018/10/2018", "100K", "Jakarta", 5));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "7%", "Pt. Ramus", "2018/10/2018", "250K", "Jakarta", 4));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Turu", "2018/10/2018", "230k", "Jakarta", 2));
+        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Solusi", "2018/10/2018", "100k", "Ciamis", 3));
 
     }
 

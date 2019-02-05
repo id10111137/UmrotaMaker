@@ -1,4 +1,4 @@
-package com.example.tatangit.umrota_maker.View.SignUp;
+package com.example.tatangit.umrota_maker.View.Lisence;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,30 +14,31 @@ import com.example.tatangit.umrota_maker.R;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Fragment_SignUp_ extends Fragment {
+public class Fragment_Lisence extends Fragment {
 
     Intent intent;
     Toolbar toolbar;
     TextView mTitle;
-    CircleImageView toolbar_iconView;
     View root;
+    CircleImageView toolbar_iconView;
 
-    public Fragment_SignUp_() {
+    public Fragment_Lisence() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_signup_, container, false);
+        root = inflater.inflate(R.layout.fragment_lisensi, container, false);
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Login Member");
+        mTitle.setText("Lisence Apps");
 
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
 
         return root;
     }
+
 }

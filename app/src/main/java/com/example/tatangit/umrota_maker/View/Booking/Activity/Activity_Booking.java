@@ -8,8 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.tatangit.umrota_maker.Hellper.ModelManager;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
+import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
 
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -44,6 +46,18 @@ public class Activity_Booking extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        try {
+
+            if (!ModelManager.getInstance(getApplicationContext()).isLoggedIn()) {
+                startActivity(new Intent(this, Activity_Login.class));
+                finish();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

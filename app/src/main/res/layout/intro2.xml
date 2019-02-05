@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorWhite"
     android:layout_weight="10"
     android:id="@+id/main">
 
@@ -14,7 +14,7 @@
         android:paddingLeft="32dp"
         android:layout_weight="3"
         android:fontFamily="sans-serif-thin"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorAccent"
         android:paddingRight="32dp"
         android:textSize="28sp"
         android:text="Wellcome Umrota Maker"/>
@@ -32,15 +32,16 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/ic_wellcome"/>
+            android:src="@drawable/khabah"/>
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorAccent"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
         android:textSize="16sp"
