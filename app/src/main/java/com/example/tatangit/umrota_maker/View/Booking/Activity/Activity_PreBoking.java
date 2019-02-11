@@ -55,10 +55,10 @@ public class Activity_PreBoking extends AppCompatActivity {
         try {
 
             if (!ModelManager.getInstance(getApplicationContext()).isLoggedIn()) {
-//                startActivity(new Intent(this, Activity_Login.class));
-//                finish();
-                startActivity(new Intent(this, Activity_AMyProfil.class));
+                startActivity(new Intent(this, Activity_Login.class));
                 finish();
+//                startActivity(new Intent(this, Activity_AMyProfil.class));
+//                finish();
             }
 
         } catch (Exception e) {

@@ -27,6 +27,8 @@ public class Fragment_Home extends Fragment {
     Fragment fragment;
     FragmentManager fragmentManager;
 
+
+
     public Fragment_Home() {
     }
 

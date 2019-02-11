@@ -6,23 +6,17 @@
     android:orientation="vertical"
     android:padding="@dimen/m_10dp">
 
-
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/m_10dp"
         android:orientation="horizontal">
 
-
         <LinearLayout
-            android:id="@+id/textView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:background="@color/colorSnow"
             android:layout_weight="1"
-            android:background="@drawable/bottom_form"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -38,7 +32,60 @@
                     android:text="Keberangkatan"
                     android:textColor="@color/colorBlack" />
 
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorSnow"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Kedatangan"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/m_10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ln_keberangkatan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:background="@drawable/bottom_form"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/id_keberangkatan_dates"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -57,9 +104,8 @@
 
         </LinearLayout>
 
-
         <LinearLayout
-            android:id="@+id/textView2"
+            android:id="@+id/ln_kedatangan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -77,13 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Kedatangan"
-                    android:textColor="@color/colorBlack" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:id="@+id/id_kedatangan_dates"
                     android:text="10-Febuary-2018"
                     android:textColor="@color/colorBlack" />
 
@@ -100,7 +140,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
     <ListView
         android:id="@+id/id_lv_promo"

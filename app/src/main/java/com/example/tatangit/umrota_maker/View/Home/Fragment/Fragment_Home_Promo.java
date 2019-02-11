@@ -1,27 +1,33 @@
 package com.example.tatangit.umrota_maker.View.Home.Fragment;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.tatangit.umrota_maker.Hellper.Calendars;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_PreBoking;
-import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_AMyProfil;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Promo;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Fragment_Home_Promo extends Fragment {
@@ -32,15 +38,25 @@ public class Fragment_Home_Promo extends Fragment {
     CircleImageView toolbar_iconView;
     View root;
 
-
     @BindView(R.id.id_lv_promo)
     ListView id_lv_promo;
+    @BindView(R.id.id_keberangkatan_dates)
+            TextView id_keberangkatan_dates;
+
+    @BindView(R.id.id_kedatangan_dates)
+    TextView id_kedatangan_dates;
 
     Adapter_Promo adapter_promo;
     ArrayList<Model_Promo> model_promos;
 
+    Calendars calendars;
+    DatePickerDialog datePickerDialog;
+
+
+
 
     public Fragment_Home_Promo() {
+        this.calendars = new Calendars();
     }
 
 
@@ -78,6 +94,40 @@ public class Fragment_Home_Promo extends Fragment {
             }
         });
         return root;
+    }
+
+
+    @OnClick(R.id.ln_kedatangan)
+    public void lnKedatangan(){
+
+        datePickerDialog = new DatePickerDialog(getContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+
+                        id_kedatangan_dates.setText(calendars.getDateMonthYearh(year,monthOfYear,dayOfMonth));
+
+                    }
+                }, calendars.getYearh(), calendars.getMonth(), calendars.getDay());
+
+        datePickerDialog.show();
+    }
+
+    @OnClick(R.id.ln_keberangkatan)
+    public void ln_keberangkatan(){
+        datePickerDialog = new DatePickerDialog(getContext(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        id_keberangkatan_dates.setText(calendars.getDateMonthYearh(year,monthOfYear,dayOfMonth));
+                    }
+                }, calendars.getYearh(), calendars.getMonth(), calendars.getDay());
+
+        datePickerDialog.show();
     }
 
     private void DummyData() {
