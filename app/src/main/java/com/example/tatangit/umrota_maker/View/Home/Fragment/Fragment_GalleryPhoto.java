@@ -28,8 +28,8 @@ public class Fragment_GalleryPhoto extends Fragment {
     TextView mTitle;
     CircleImageView toolbar_iconView;
     View root;
-
     ArrayList<Model_Company_Gallery> model_company_galleries;
+    public String Nomor_Company;
 
 
     public Fragment_GalleryPhoto() {
@@ -47,8 +47,7 @@ public class Fragment_GalleryPhoto extends Fragment {
         toolbar = getActivity().findViewById(R.id.toolbar);
 
 
-        mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Gallery Photo");
+
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
         DummyData();

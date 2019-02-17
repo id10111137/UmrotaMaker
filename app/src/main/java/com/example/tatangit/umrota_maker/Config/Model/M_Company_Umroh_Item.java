@@ -1,10 +1,8 @@
 package com.example.tatangit.umrota_maker.Config.Model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("com.robohorse.robopojogenerator")
-public class MessageItem{
+public class M_Company_Umroh_Item {
 
 	@SerializedName("alamat_perusahaan")
 	private String alamatPerusahaan;
@@ -218,7 +216,7 @@ public class MessageItem{
 	@Override
  	public String toString(){
 		return 
-			"MessageItem{" + 
+			"M_PromoItem{" +
 			"alamat_perusahaan = '" + alamatPerusahaan + '\'' + 
 			",mobile_tlp = '" + mobileTlp + '\'' + 
 			",nomor_umroh = '" + nomorUmroh + '\'' + 

@@ -45,9 +45,6 @@ public class Fragment_Store extends Fragment {
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
 
-
-        mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Store Perusahaan");
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
 

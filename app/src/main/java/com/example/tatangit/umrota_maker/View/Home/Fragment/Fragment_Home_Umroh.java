@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
+import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
+import com.example.tatangit.umrota_maker.Config.Model.M_Company;
+import com.example.tatangit.umrota_maker.Config.Model.M_Company_Item;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
@@ -20,10 +25,13 @@ import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Fragment_Home_Umroh extends Fragment {
 
@@ -42,6 +50,8 @@ public class Fragment_Home_Umroh extends Fragment {
 
     Adapter_Umroh adapter_umroh;
     ArrayList<Model_Umroh> model_umroh;
+    Umrota_Service mUmrotaService;
+
 
     public Fragment_Home_Umroh() {
     }
@@ -55,6 +65,8 @@ public class Fragment_Home_Umroh extends Fragment {
         toolbar = getActivity().findViewById(R.id.toolbar);
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("UMROH");
+        mUmrotaService = Api_Utils.getSOService();
+
 
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_shoping));
@@ -65,34 +77,38 @@ public class Fragment_Home_Umroh extends Fragment {
                 startActivity(intent);
             }
         });
+        mUmrotaService.getAllCompany().enqueue(new Callback<M_Company>() {
+            @Override
+            public void onResponse(Call<M_Company> call, retrofit2.Response<M_Company> response) {
 
-        DummyData();
-        adapter_umroh = new Adapter_Umroh(model_umroh, getContext());
-        id_lv_umroh.setAdapter(adapter_umroh);
+                if (response.isSuccessful()){
+
+                    final List<M_Company_Item> MCompanyItemList = response.body().getMessage();
+                    adapter_umroh = new Adapter_Umroh(MCompanyItemList, getContext());
+                    adapter_umroh.notifyDataSetChanged();
+                    id_lv_umroh.setAdapter(adapter_umroh);
+
+                } else {
+                    Toast.makeText(getContext(), "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<M_Company> call, Throwable t) {
+                Log.d("Tampilkan",t.toString());
+            }
+        });
 
         id_lv_umroh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 intent = new Intent(getContext(), Activity_DCompany.class);
-                intent.putExtra("name_company", adapter_umroh.getItem(position).getNama_Perusahaan());
+                intent.putExtra("nomor_company", adapter_umroh.getItem(position).getNomorCompany());
+                intent.putExtra("nama_perusahaan",adapter_umroh.getItem(position).getNamaPerusahaan());
                 startActivity(intent);
             }
         });
 
         return root;
-    }
-
-
-    private void DummyData() {
-        model_umroh = new ArrayList<>();
-        model_umroh.add(new Model_Umroh("http://1.bp.blogspot.com/-xpZkyLTrBak/VfZOfgEHn9I/AAAAAAAAEIg/Mr_XSNjxsl4/s1600/haji.jpg","Pt. Rusanawa","Jl. Padjajaran","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg","Pt. Lama TakJumpa","Jl. Setiabudhi","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("http://1.bp.blogspot.com/-xpZkyLTrBak/VfZOfgEHn9I/AAAAAAAAEIg/Mr_XSNjxsl4/s1600/haji.jpg","Pt. Sanbe","Jl. Mercubuana","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg","Pt. Umbro","Jl. Unikom","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("http://1.bp.blogspot.com/-xpZkyLTrBak/VfZOfgEHn9I/AAAAAAAAEIg/Mr_XSNjxsl4/s1600/haji.jpg","Cv. Rakutak","Jl. Salatiga","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg","Pt. RockStart","Jl. Sangubuana","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("http://1.bp.blogspot.com/-xpZkyLTrBak/VfZOfgEHn9I/AAAAAAAAEIg/Mr_XSNjxsl4/s1600/haji.jpg","Pt. LongbeSong","Jl. Ragaji Mesin","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg","Pt. Rgaji","Jl. Brhamanuksi","Hajji Dan Umroh","10/minggu"));
-        model_umroh.add(new Model_Umroh("http://1.bp.blogspot.com/-xpZkyLTrBak/VfZOfgEHn9I/AAAAAAAAEIg/Mr_XSNjxsl4/s1600/haji.jpg","Pt. Sokume","Jl. Citarum","Hajji Dan Umroh","10/minggu"));
     }
 }

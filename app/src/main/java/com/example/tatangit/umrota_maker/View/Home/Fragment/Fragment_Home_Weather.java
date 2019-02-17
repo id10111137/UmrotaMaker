@@ -44,7 +44,7 @@ public class Fragment_Home_Weather extends Fragment {
 
         toolbar = getActivity().findViewById(R.id.toolbar);
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Wellcome Umrota Maker");
+        mTitle.setText("Wellcome Umrota_Service Maker");
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
 

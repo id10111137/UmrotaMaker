@@ -2,6 +2,9 @@ package com.example.tatangit.umrota_maker.View.Home.Model;
 
 public class Model_Promo {
 
+
+
+    String NomorPromo;
     String Promo;
     String Nama_Perusahaan;
     String TanggalPromo;
@@ -10,8 +13,12 @@ public class Model_Promo {
     String UrlImage;
     int JmlBintang;
 
+    public Model_Promo() {
+    }
 
-    public Model_Promo(String UrlImage, String promo, String nama_Perusahaan, String tanggalPromo, String hargaPromo, String alamatPerusahaan, int JmlBintang) {
+
+    public Model_Promo(String NomorPromo, String UrlImage, String promo, String nama_Perusahaan, String tanggalPromo, String hargaPromo, String alamatPerusahaan, int JmlBintang) {
+        this.NomorPromo = NomorPromo;
         this.UrlImage = UrlImage;
         this.Promo = promo;
         this.Nama_Perusahaan = nama_Perusahaan;
@@ -19,6 +26,14 @@ public class Model_Promo {
         this.HargaPromo = hargaPromo;
         this.AlamatPerusahaan = alamatPerusahaan;
         this.JmlBintang = JmlBintang;
+    }
+
+    public String getNomorPromo() {
+        return NomorPromo;
+    }
+
+    public void setNomorPromo(String nomorPromo) {
+        NomorPromo = nomorPromo;
     }
 
     public int getJmlBintang() {

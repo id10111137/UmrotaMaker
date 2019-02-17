@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Config.Model.M_PromoItem;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
@@ -24,15 +25,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
+public class Adapter_Promo extends ArrayAdapter<M_PromoItem> {
 
     private Context context;
-    private List<Model_Promo> dataSet = null;
-    private ArrayList<Model_Promo> originDataSet = null;
+    private List<M_PromoItem> dataSet = null;
+    private ArrayList<M_PromoItem> originDataSet = null;
     LayoutInflater inflater;
 //    ArrayList<String> modeArrays;
 
-    public Adapter_Promo(ArrayList<Model_Promo> data, Context context) {
+    public Adapter_Promo(List<M_PromoItem> data, Context context) {
         super(context, R.layout.fragment_home_promo_row, data);
         this.dataSet = data;
         this.context = context;
@@ -56,7 +57,7 @@ public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
     }
 
     @Override
-    public Model_Promo getItem(int position) {
+    public M_PromoItem getItem(int position) {
         return dataSet.get(position);
     }
 
@@ -69,7 +70,7 @@ public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Model_Promo dataModel = getItem(position);
+        final M_PromoItem dataModel = getItem(position);
 //        modeArrays = new ArrayList<>();
         final ViewHolder viewHolder;
         final View result;
@@ -98,7 +99,7 @@ public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
         }
 
         assert dataModel != null;
-        Picasso.get().load(dataModel.getUrlPromo()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_img_home, new Callback() {
+        Picasso.get().load(dataModel.getLogo()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_img_home, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -112,12 +113,12 @@ public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
 
 
         assert dataModel != null;
-        viewHolder.id_nilai_discount.setText("Promo " + dataModel.getHargaPromo());
-        viewHolder.id_perusahaan.setText(dataModel.getNama_Perusahaan());
-        viewHolder.id_keberangkatan.setText(dataModel.getTanggalPromo());
-        viewHolder.id_harga.setText(dataModel.getHargaPromo());
+        viewHolder.id_nilai_discount.setText("Promo " + dataModel.getHargaUmroh());
+        viewHolder.id_perusahaan.setText(dataModel.getNamaPerusahaan());
+        viewHolder.id_keberangkatan.setText(dataModel.getKeberangkatan());
+        viewHolder.id_harga.setText(dataModel.getDiscountPercent());
         ImageView image = null;
-        for (int i = 1; i < dataModel.getJmlBintang(); i++) {
+        for (int i = 1; i < 3; i++) {
              image = new ImageView(getContext());
             image.setImageResource(R.drawable.ic_star);
             image.setLayoutParams(new android.view.ViewGroup.LayoutParams(30, 30));
@@ -135,8 +136,8 @@ public class Adapter_Promo extends ArrayAdapter<Model_Promo> {
         if (charText.length() == 0) {
             dataSet.addAll(originDataSet);
         } else {
-            for (Model_Promo wp : originDataSet) {
-                if (wp.getNama_Perusahaan().toLowerCase(Locale.getDefault())
+            for (M_PromoItem wp : originDataSet) {
+                if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
                 } else {

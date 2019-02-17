@@ -14,21 +14,32 @@ import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
+import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
+import com.example.tatangit.umrota_maker.Config.Model.M_Company_Item;
+import com.example.tatangit.umrota_maker.Config.Model.M_Promo;
+import com.example.tatangit.umrota_maker.Config.Model.M_PromoItem;
 import com.example.tatangit.umrota_maker.Hellper.Calendars;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.Booking.Activity.Activity_PreBoking;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Promo;
+import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_Home_Promo extends Fragment {
 
@@ -51,6 +62,7 @@ public class Fragment_Home_Promo extends Fragment {
 
     Calendars calendars;
     DatePickerDialog datePickerDialog;
+    Umrota_Service mUmrotaService;
 
 
 
@@ -67,6 +79,7 @@ public class Fragment_Home_Promo extends Fragment {
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
 
+        mUmrotaService = Api_Utils.getSOService();
 
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("UMROH PROMO");
@@ -81,15 +94,33 @@ public class Fragment_Home_Promo extends Fragment {
             }
         });
 
-        DummyData();
-        adapter_promo = new Adapter_Promo(model_promos, getContext());
-        id_lv_promo.setAdapter(adapter_promo);
+
+        mUmrotaService.getAllUmrohCompany().enqueue(new Callback<M_Promo>() {
+            @Override
+            public void onResponse(Call<M_Promo> call, Response<M_Promo> response) {
+                if (response.isSuccessful()){
+
+                    final List<M_PromoItem> m_promoItems = response.body().getMessage();
+                    adapter_promo = new Adapter_Promo(m_promoItems, getContext());
+                    adapter_promo.notifyDataSetChanged();
+                    id_lv_promo.setAdapter(adapter_promo);
+
+                } else {
+                    Toast.makeText(getContext(), "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<M_Promo> call, Throwable t) {
+                Toast.makeText(getContext(), "Koneksi Tidak Bagus", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         id_lv_promo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 intent = new Intent(getContext(), Activity_PreBoking.class);
-                intent.putExtra("company_no", adapter_promo.getItem(position).getNama_Perusahaan());
+                intent.putExtra("nomor_umroh", adapter_promo.getItem(position).getNomorUmroh());
                 startActivity(intent);
             }
         });
@@ -130,15 +161,5 @@ public class Fragment_Home_Promo extends Fragment {
         datePickerDialog.show();
     }
 
-    private void DummyData() {
-        model_promos = new ArrayList<>();
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Samurco", "2018/10/2018", "300k", "Bansung", 3));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "20%", "Pt. Gugu", "2018/10/2018", "200k", "Jakarta", 4));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Anday", "2018/10/2018", "100K", "Jakarta", 5));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "7%", "Pt. Ramus", "2018/10/2018", "250K", "Jakarta", 4));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "10%", "Pt. Turu", "2018/10/2018", "230k", "Jakarta", 2));
-        model_promos.add(new Model_Promo("https://apaperbedaan.com/wp-content/uploads/2016/08/HajiUmroh-730x350.jpg", "5%", "Pt. Solusi", "2018/10/2018", "100k", "Ciamis", 3));
-
-    }
 
 }

@@ -26,19 +26,33 @@
             android:textSize="12dp" />
 
         <TextView
+            android:id="@+id/txt_nama_costumer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full Nama" />
 
         <EditText
-            android:id="@+id/id_username"
+            android:id="@+id/id_namacostumer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Nama"
             android:inputType="text" />
 
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username" />
+
+        <EditText
+            android:id="@+id/id_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="text" />
 
         <TextView
+            android:id="@+id/txt_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password" />
@@ -51,6 +65,7 @@
             android:inputType="textPassword" />
 
         <TextView
+            android:id="@+id/txt_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="email" />
@@ -63,6 +78,7 @@
             android:inputType="textEmailAddress" />
 
         <TextView
+            android:id="@+id/txt_nomor_tlp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No Telp" />
@@ -76,7 +92,7 @@
 
 
         <LinearLayout
-            android:id="@+id/id_goLogin"
+            android:id="@+id/id_goRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

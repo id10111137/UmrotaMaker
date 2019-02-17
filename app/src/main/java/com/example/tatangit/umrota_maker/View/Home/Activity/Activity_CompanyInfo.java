@@ -36,6 +36,7 @@ public class Activity_CompanyInfo extends AppCompatActivity {
 
     Toolbar toolbar;
     public String nameCompany;
+    public String nomor_company;
     TextView mTitle;
     CircleImageView toolbar_iconView;
     Intent intent;
@@ -56,7 +57,8 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        nameCompany = getIntent().getStringExtra("name_company");
+        nameCompany = getIntent().getStringExtra("nama_perusahaan");
+        nomor_company = getIntent().getStringExtra("nomor_company");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
@@ -66,8 +68,6 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         setupViewPager(viewPager);
         tableLayout.setupWithViewPager(viewPager);
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,7 +80,6 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         }
     }
 
-
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Fragment_GalleryPhoto(), "Gallery Photo");
@@ -90,6 +89,7 @@ public class Activity_CompanyInfo extends AppCompatActivity {
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
+
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 

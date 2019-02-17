@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Config.Model.M_Company_Umroh_Item;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
+public class Adapter_DCompany extends ArrayAdapter<M_Company_Umroh_Item> {
 
     private Context context;
-    private List<Model_DCompany> dataSet = null;
-    private ArrayList<Model_DCompany> originDataSet = null;
+    private List<M_Company_Umroh_Item> dataSet = null;
+    private ArrayList<M_Company_Umroh_Item> originDataSet = null;
     LayoutInflater inflater;
 
-    public Adapter_DCompany(ArrayList<Model_DCompany> data, Context context) {
+    public Adapter_DCompany(List<M_Company_Umroh_Item> data, Context context) {
         super(context, R.layout.activity_dcompany_row, data);
         this.dataSet = data;
         this.context = context;
@@ -54,7 +55,7 @@ public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
     }
 
     @Override
-    public Model_DCompany getItem(int position) {
+    public M_Company_Umroh_Item getItem(int position) {
         return dataSet.get(position);
     }
 
@@ -67,7 +68,7 @@ public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Model_DCompany dataModel = getItem(position);
+        final M_Company_Umroh_Item dataModel = getItem(position);
         final ViewHolder viewHolder;
         final View result;
 
@@ -95,7 +96,7 @@ public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
         }
 
         assert dataModel != null;
-        Picasso.get().load(dataModel.getUrlDCompany()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_img_dcompany, new Callback() {
+        Picasso.get().load(dataModel.getLogo()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_img_dcompany, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -107,12 +108,12 @@ public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
             }
         });
 
-        viewHolder.id_subject_company.setText(dataModel.getSubjectTraveling());
-        viewHolder.id_name_company.setText(dataModel.getNameCompany());
-        viewHolder.id_Ddepart.setText("Keberangkatan : " + dataModel.getDDeparture());
-        viewHolder.id_Darrival.setText("Kedatangan: " + dataModel.getDArrival());
-        viewHolder.id_qty.setText("Jumlah Kursi : " + dataModel.getQty());
-        viewHolder.id_booking.setText("Sisa Booking: " + dataModel.getBooking());
+        viewHolder.id_subject_company.setText(dataModel.getJudulUmroh());
+        viewHolder.id_name_company.setText(dataModel.getNamaPerusahaan());
+        viewHolder.id_Ddepart.setText("Keberangkatan : " + dataModel.getKeberangkatan());
+        viewHolder.id_Darrival.setText("Kedatangan: " + dataModel.getKepulangan());
+        viewHolder.id_qty.setText("Jumlah Kursi : " + dataModel.getMaxOrangUmroh() );
+        viewHolder.id_booking.setText("Sisa Booking: " + ((Integer.parseInt(dataModel.getMaxOrangUmroh()) - Integer.parseInt(dataModel.getMinOrangUmroh()))));
 
 
         return convertView;
@@ -124,8 +125,8 @@ public class Adapter_DCompany extends ArrayAdapter<Model_DCompany> {
         if (charText.length() == 0) {
             dataSet.addAll(originDataSet);
         } else {
-            for (Model_DCompany wp : originDataSet) {
-                if (wp.getSubjectTraveling().toLowerCase(Locale.getDefault())
+            for (M_Company_Umroh_Item wp : originDataSet) {
+                if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
                 } else {

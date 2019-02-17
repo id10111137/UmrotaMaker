@@ -7,11 +7,6 @@
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/action_bar" />
-
     <android.support.design.widget.TabLayout
         android:id="@+id/id_tb_member_booking"
         android:layout_width="match_parent"
