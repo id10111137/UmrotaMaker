@@ -2,10 +2,12 @@ package com.example.tatangit.umrota_maker.Hellper;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.tatangit.umrota_maker.Config.Api.GlobalVariable;
-import com.example.tatangit.umrota_maker.View.SignUp.Model.M_Costumer;
+import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
 
 
 /**
@@ -30,26 +32,26 @@ public class UserModelManager {
         return mInstance;
     }
 
-    public void UserLogin(M_Costumer m_costumer) {
+    public void UserLogin(Model_UserItem modelUserItem) {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(GlobalVariable.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(GlobalVariable.usia, m_costumer.getUsia());
-        editor.putString(GlobalVariable.nomorCostumer, m_costumer.getNomorCostumer());
-        editor.putString(GlobalVariable.nomorTlp, m_costumer.getNomorTlp());
-        editor.putString(GlobalVariable.urlPhoto, m_costumer.getUrlPhoto());
-        editor.putString(GlobalVariable.nomorPassport, m_costumer.getNomorPassport());
-        editor.putString(GlobalVariable.nomorNpwp, m_costumer.getNomorNpwp());
-        editor.putString(GlobalVariable.password, m_costumer.getPassword());
-        editor.putString(GlobalVariable.alamatCostumer, m_costumer.getAlamatCostumer());
-        editor.putString(GlobalVariable.nomorKtp, m_costumer.getNomorKtp());
-        editor.putString(GlobalVariable.createDate, m_costumer.getCreateDate());
-        editor.putString(GlobalVariable.jenisKelamin, m_costumer.getJenisKelamin());
-        editor.putString(GlobalVariable.namaCostumer, m_costumer.getNamaCostumer());
-        editor.putString(GlobalVariable.email, m_costumer.getEmail());
-        editor.putString(GlobalVariable.nomorKartuKesehatan, m_costumer.getNomorKartuKesehatan());
-        editor.putString(GlobalVariable.username, m_costumer.getUsername());
-        editor.putString(GlobalVariable.status, m_costumer.getStatus());
+        editor.putString(GlobalVariable.usia, modelUserItem.getUsia());
+        editor.putString(GlobalVariable.nomorCostumer, modelUserItem.getNomorCostumer());
+        editor.putString(GlobalVariable.nomorTlp, modelUserItem.getNomorTlp());
+        editor.putString(GlobalVariable.urlPhoto, modelUserItem.getUrlPhoto());
+        editor.putString(GlobalVariable.nomorPassport, modelUserItem.getNomorPassport());
+        editor.putString(GlobalVariable.nomorNpwp, modelUserItem.getNomorNpwp());
+        editor.putString(GlobalVariable.password, modelUserItem.getPassword());
+        editor.putString(GlobalVariable.alamatCostumer, modelUserItem.getAlamatCostumer());
+        editor.putString(GlobalVariable.nomorKtp, modelUserItem.getNomorKtp());
+        editor.putString(GlobalVariable.createDate, modelUserItem.getCreateDate());
+        editor.putString(GlobalVariable.jenisKelamin, modelUserItem.getJenisKelamin());
+        editor.putString(GlobalVariable.namaCostumer, modelUserItem.getNamaCostumer());
+        editor.putString(GlobalVariable.email, modelUserItem.getEmail());
+        editor.putString(GlobalVariable.nomorKartuKesehatan, modelUserItem.getNomorKartuKesehatan());
+        editor.putString(GlobalVariable.username, modelUserItem.getUsername());
+        editor.putString(GlobalVariable.status, modelUserItem.getStatus());
 
         editor.apply();
     }
@@ -59,9 +61,9 @@ public class UserModelManager {
         return sharedPreferences.getString(GlobalVariable.nomorCostumer, null) != null;
     }
 
-    public M_Costumer getUser() {
+    public Model_UserItem getUser() {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(GlobalVariable.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return new M_Costumer(
+        return new Model_UserItem(
                 sharedPreferences.getString(GlobalVariable.usia, null),
                 sharedPreferences.getString(GlobalVariable.nomorCostumer, null),
                 sharedPreferences.getString(GlobalVariable.nomorTlp, null),
@@ -80,20 +82,16 @@ public class UserModelManager {
                 sharedPreferences.getString(GlobalVariable.status, null));
     }
 
-//    public void LogOut() {
-//        SharedPreferences sharedPreferences = mContext.getSharedPreferences(DataCollection.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.clear();
-//        editor.apply();
-//        editor.commit();
-//        Intent intent = new Intent(mContext, Account_Login.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        mContext.startActivity(intent);
-//    }
+    public void LogOut() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(GlobalVariable.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        editor.commit();
+        Intent intent = new Intent(mContext, Activity_Login.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mContext.startActivity(intent);
+    }
 
-//    public void Refresh() {
-//        mContext.startActivity(new Intent(mContext, MainActivity.class));
-//        return;
-//    }
 
 }

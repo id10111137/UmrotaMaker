@@ -10,35 +10,26 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Store;
 
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Fragment_Register extends Fragment {
+public class Fragment_MyDoc extends Fragment{
 
-    Intent intent;
-    Toolbar toolbar;
-    TextView mTitle;
-    CircleImageView toolbar_iconView;
+
     View root;
 
-    public Fragment_Register() {
-    }
 
+    public Fragment_MyDoc() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_register, container, false);
+        root = inflater.inflate(R.layout.fragment_mydoc, container, false);
         ButterKnife.bind(this, root);
-        toolbar = getActivity().findViewById(R.id.toolbar);
-        mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Register Member");
-
-        toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(null);
 
         return root;
     }
-
 }

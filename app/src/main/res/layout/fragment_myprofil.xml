@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_masjidil"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_myphoto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_user"
+                app:civ_border_color="@color/colorWhite"
+                app:civ_border_width="1dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/m_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/m_10dp">
+
+            <TextView
+                android:id="@+id/txt_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_nama"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="my Name" />
+
+
+            <TextView
+                android:id="@+id/txt_alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_alamat"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alamat" />
+
+
+            <TextView
+                android:id="@+id/txt_notlp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No.Tlp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_notlp"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor telephone" />
+
+
+            <TextView
+                android:id="@+id/txt_nonpwp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor Npwp"
+                android:inputType="text"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_nonpwp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="No.Npwp" />
+
+
+            <TextView
+                android:id="@+id/txt_nopassport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No.Passport"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_nopassport"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:hint="my Name" />
+
+
+            <TextView
+                android:id="@+id/txt_noktp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor Ktp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_nomor_ktp"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No.Ktp" />
+
+
+            <TextView
+                android:id="@+id/txt_emai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_email"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="my Email" />
+
+
+            <TextView
+                android:id="@+id/txt_usia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usia"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_usia"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Usia" />
+
+
+            <TextView
+                android:id="@+id/txt_jkelamin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_jk"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jenis Kelamin"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/txt_nokartukesehatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No.Kartu Kesehatan"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_nokartukesehatan"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:hint="No Kartu Kesehatan" />
+
+
+            <TextView
+                android:id="@+id/txt_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/id_username"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username" />
+
+            <TextView
+                android:id="@+id/txt_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/id_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password" />
+
+            <LinearLayout
+                android:id="@+id/id_goSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/m_30dp"
+                android:background="@drawable/bottom"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Simpan"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/m_15dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

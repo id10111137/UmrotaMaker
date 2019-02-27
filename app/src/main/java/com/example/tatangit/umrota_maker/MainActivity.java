@@ -1,8 +1,6 @@
 package com.example.tatangit.umrota_maker;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -17,17 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.tatangit.umrota_maker.Hellper.Config;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_Home;
 import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Information;
-import com.example.tatangit.umrota_maker.View.Intro.DefaultIntro;
-import com.example.tatangit.umrota_maker.View.Lisence.Fragment_Lisence;
 import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
 import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_MyProfil;
-import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_SignUp;
-import com.example.tatangit.umrota_maker.View.SignUp.Model.M_Costumer;
+import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_Profil;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +47,11 @@ public class MainActivity extends AppCompatActivity
     ActionBarDrawerToggle toggle;
     Toolbar toolbar;
     FragmentTransaction fragmentTransaction;
-    M_Costumer m_costumer;
+    Model_UserItem model_userItem;
+
+    TextView txt_namesheader;
+    ImageView imgProfile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,30 +61,8 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        m_costumer = UserModelManager.getInstance(getApplicationContext()).getUser();
+        model_userItem = UserModelManager.getInstance(MainActivity.this).getUser();
 
-
-        /*
-            Start Slider Into
-         */
-
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences sharedPreferences = getSharedPreferences(Config.FLAG, Context.MODE_PRIVATE);
-                if (sharedPreferences.getBoolean(Config.FLAG, true)) {
-                    startActivity(new Intent(MainActivity.this, DefaultIntro.class));
-                    SharedPreferences.Editor e = sharedPreferences.edit();
-                    e.putBoolean(Config.FLAG, false);
-                    e.apply();
-                }
-            }
-        });
-        t.start();
-
-         /*
-          End Start Slider Into
-         */
 
         try {
             if (savedInstanceState == null) {
@@ -100,20 +81,27 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-
         navigationView.setNavigationItemSelectedListener(this);
+
+        View navHeader = navigationView.getHeaderView(0);
+        txt_namesheader = (TextView) navHeader.findViewById(R.id.id_nameheader);
+        txt_namesheader.setText(model_userItem.getNamaCostumer());
+        imgProfile = (ImageView) navHeader.findViewById(R.id.imageView);
+
+        if (model_userItem.getUrlPhoto() != null) {
+            Picasso.get().load(model_userItem.getUrlPhoto()).centerCrop().fit().into(imgProfile);
+        }
+
         try {
 
             if (!UserModelManager.getInstance(getApplicationContext()).isLoggedIn()) {
-                Item(false);
-            }else{
-                Item(true);
+                startActivity(new Intent(this, Activity_Login.class));
+                finish();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
 
@@ -126,12 +114,12 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.mUmrotaHome) {
             fragment = new Fragment_Home();
-        } else if (id == R.id.mRegister) {
-            fragment = new Fragment_SignUp();
         } else if (id == R.id.mInfo) {
             fragment = new Fragment_Information();
         }else if (id == R.id.mProfil) {
-            fragment = new Fragment_MyProfil();
+            fragment = new Fragment_Profil();
+        }else if (id == R.id.mLogout) {
+            UserModelManager.getInstance(getApplicationContext()).LogOut();
         }
 
         goDestination(fragment);
@@ -146,17 +134,6 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.container, fragment);
             fragmentTransaction.commit();
-        }
-    }
-
-    private void Item(Boolean HideOrNo) {
-        Menu nav_Menu = navigationView.getMenu();
-        if(HideOrNo){
-            nav_Menu.findItem(R.id.mRegister).setVisible(false);
-            nav_Menu.findItem(R.id.mProfil).setVisible(true);
-        }else{
-            nav_Menu.findItem(R.id.mRegister).setVisible(true);
-            nav_Menu.findItem(R.id.mProfil).setVisible(false);
         }
     }
 }

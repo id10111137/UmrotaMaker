@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/m_10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/id_ktp"
+            android:id="@+id/id_promo"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
@@ -30,7 +31,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="center"
-                    app:materialIcon="cards"
+                    app:materialIcon="information"
                     app:materialIconColor="@color/colorAccent"
                     app:materialIconSize="70dp" />
 
@@ -38,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload KTP"
+                    android:text=" Copy Nomor Ktp"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
@@ -64,7 +65,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="center"
-                    app:materialIcon="cards_variant"
+                    app:materialIcon="food"
                     app:materialIconColor="@color/colorAccent"
                     app:materialIconSize="70dp" />
 
@@ -72,14 +73,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload K-Keluarga"
+                    android:text="Copy No KK"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
-
 
     </LinearLayout>
 
@@ -91,7 +90,7 @@
         android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/id_buku_nikah"
+            android:id="@+id/id_corpo"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
@@ -109,7 +108,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="center"
-                    app:materialIcon="cards_diamond"
+                    app:materialIcon="corn"
                     app:materialIconColor="@color/colorAccent"
                     app:materialIconSize="70dp" />
 
@@ -117,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload Buku Nikah"
+                    android:text="Copy Surat Nikah"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
@@ -126,7 +125,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/id_passpor"
+            android:id="@+id/id_manasik"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
@@ -140,10 +139,11 @@
                 android:orientation="vertical">
 
                 <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/id_manasiks"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="center"
-                    app:materialIcon="passport"
+                    app:materialIcon="share_outline"
                     app:materialIconColor="@color/colorAccent"
                     app:materialIconSize="70dp" />
 
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload Passport"
+                    android:text="Copy Surat Kesehatan"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
@@ -169,7 +169,7 @@
         android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/id_sdokter"
+            android:id="@+id/id_document"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
@@ -195,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload Surat Dokter"
+                    android:text="Copy Passport"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 
@@ -204,7 +204,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/id_PassPhoto"
+            android:id="@+id/id_agency"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_margin="5dp"
@@ -222,7 +222,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:scaleType="center"
-                    app:materialIcon="image_album"
+                    app:materialIcon="search_web"
                     app:materialIconColor="@color/colorAccent"
                     app:materialIconSize="70dp" />
 
@@ -230,7 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Upload Pass Photo"
+                    android:text="Copy Kartu Lahir"
                     android:textColor="@color/colorAccent"
                     android:textStyle="bold" />
 

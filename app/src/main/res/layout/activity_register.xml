@@ -2,33 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="@dimen/m_10dp"
     android:orientation="vertical">
 
-    <include
-        layout="@layout/action_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:orientation="vertical"
-        android:padding="@dimen/m_10dp">
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/m_30dp"
-            android:gravity="center"
-            android:text="Sign Up Untuk Member Baru"
-            android:textSize="12dp" />
+
+        <ImageView
+            android:id="@+id/id_icon_bg"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/m_30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_umroh" />
 
         <TextView
             android:id="@+id/txt_nama_costumer"
+            android:layout_marginTop="@dimen/m_20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:text="Full Nama" />
 
         <EditText
@@ -36,18 +30,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Nama"
+            android:textColor="@color/colorWhite"
             android:inputType="text" />
 
         <TextView
             android:id="@+id/txt_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:text="Username" />
 
         <EditText
             android:id="@+id/id_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:hint="Username"
             android:inputType="text" />
 
@@ -55,6 +52,7 @@
             android:id="@+id/txt_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:text="Password" />
 
         <EditText
@@ -62,11 +60,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:textColor="@color/colorWhite"
             android:inputType="textPassword" />
 
         <TextView
             android:id="@+id/txt_email"
             android:layout_width="wrap_content"
+            android:textColor="@color/colorWhite"
             android:layout_height="wrap_content"
             android:text="email" />
 
@@ -74,6 +74,7 @@
             android:id="@+id/id_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:hint="email"
             android:inputType="textEmailAddress" />
 
@@ -81,6 +82,7 @@
             android:id="@+id/txt_nomor_tlp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
             android:text="No Telp" />
 
         <EditText
@@ -88,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone no"
+            android:textColor="@color/colorWhite"
             android:inputType="phone" />
 
 
@@ -111,9 +114,33 @@
                 android:textSize="@dimen/m_15dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/m_10dp">
 
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="Already Account ?."
+                    android:textSize="@dimen/m_15dp" />
+
+                <TextView
+                    android:id="@+id/id_goLogin"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:layout_height="wrap_content"
+                    android:text=" Login"
+                    android:textSize="@dimen/m_15dp"
+                    android:textStyle="italic" />
+
+
+        </LinearLayout>
+
 
 
 </LinearLayout>
