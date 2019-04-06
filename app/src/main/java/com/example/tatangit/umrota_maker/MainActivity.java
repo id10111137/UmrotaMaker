@@ -1,7 +1,9 @@
 package com.example.tatangit.umrota_maker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,21 +14,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Hellper.Hellper_Umrota;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_Home;
 import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Information;
 import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
-import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_MyProfil;
 import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_Profil;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity
 
 
     Fragment fragment;
-
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -52,6 +51,8 @@ public class MainActivity extends AppCompatActivity
     TextView txt_namesheader;
     ImageView imgProfile;
 
+    Hellper_Umrota hellper_umrota;
+    Intent mIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,16 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         model_userItem = UserModelManager.getInstance(MainActivity.this).getUser();
+        hellper_umrota = new Hellper_Umrota();
 
+
+        if (!hellper_umrota.checkConnection(getApplicationContext())) {
+            Toast.makeText(this, "Interet Not Connection", Toast.LENGTH_SHORT).show();
+        } else if (!hellper_umrota.isLocationEnabled(getApplicationContext())) {
+            Toast.makeText(this, "Location Not Enable", Toast.LENGTH_SHORT).show();
+            mIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(mIntent);
+        }
 
         try {
             if (savedInstanceState == null) {
@@ -88,9 +98,6 @@ public class MainActivity extends AppCompatActivity
         txt_namesheader.setText(model_userItem.getNamaCostumer());
         imgProfile = (ImageView) navHeader.findViewById(R.id.imageView);
 
-        if (model_userItem.getUrlPhoto() != null) {
-            Picasso.get().load(model_userItem.getUrlPhoto()).centerCrop().fit().into(imgProfile);
-        }
 
         try {
 
@@ -116,9 +123,9 @@ public class MainActivity extends AppCompatActivity
             fragment = new Fragment_Home();
         } else if (id == R.id.mInfo) {
             fragment = new Fragment_Information();
-        }else if (id == R.id.mProfil) {
+        } else if (id == R.id.mProfil) {
             fragment = new Fragment_Profil();
-        }else if (id == R.id.mLogout) {
+        } else if (id == R.id.mLogout) {
             UserModelManager.getInstance(getApplicationContext()).LogOut();
         }
 

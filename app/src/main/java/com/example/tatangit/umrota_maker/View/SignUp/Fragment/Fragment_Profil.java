@@ -50,15 +50,18 @@ public class Fragment_Profil extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
-        adapter.addFragment(new Fragment_MyProfil(), "My Profil");
-        adapter.addFragment(new Fragment_MyDoc(), "My Document");
+        adapter.addFragment(new Fragment_MyProfil(), "Profil Saya");
+        adapter.addFragment(new Fragment_MyDoc(), "Document Saya");
         viewPager.setAdapter(adapter);
+
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
+
+
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);

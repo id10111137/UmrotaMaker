@@ -24,24 +24,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:background="@drawable/promo_info"
                 android:orientation="vertical">
 
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_guiden"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="information"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Promo Info"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -58,24 +44,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:background="@drawable/fasilitas"
                 android:orientation="vertical">
 
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_facility"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="food"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Fasilitas"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -101,24 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:background="@drawable/corporate"
                 android:orientation="vertical">
 
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_corporate"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="corn"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Coorporate Page"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -136,25 +93,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:background="@drawable/manasik"
                 android:orientation="vertical">
-
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_manasiks"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="share_outline"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Manasik"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
-
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -180,25 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:background="@drawable/document"
                 android:orientation="vertical">
-
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_documents"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="file_document"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Document Support"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
-
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -214,25 +137,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/agency"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <net.steamcrafted.materialiconlib.MaterialIconView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/id_agens"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="center"
-                    app:materialIcon="search_web"
-                    app:materialIconColor="@color/colorAccent"
-                    app:materialIconSize="70dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Agency Corporate"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>

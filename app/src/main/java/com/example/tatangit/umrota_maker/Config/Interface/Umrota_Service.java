@@ -1,21 +1,38 @@
 package com.example.tatangit.umrota_maker.Config.Interface;
 
+import android.database.Observable;
+
 import com.example.tatangit.umrota_maker.Config.Model.M_Company;
 import com.example.tatangit.umrota_maker.Config.Model.M_Company_Umroh;
 import com.example.tatangit.umrota_maker.Config.Model.M_Promo;
 import com.example.tatangit.umrota_maker.Config.Model.M_Register;
+import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_User;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.Response;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Part;
 
 public interface Umrota_Service {
 
-    @GET("Umrota_Company/ListCompany")
-    Call<M_Company> getAllCompany();
+    @POST("Umrota_Company/ListCompany")
+    @FormUrlEncoded
+    Call<M_Company> postAllCompany(@Field("nama_perusahaan") String nama_perusahaan, @Field("alamat_perusahaan") String alamat_perusahaan);
+
+
+    @POST("Umrota/UmrotaPacketByID")
+    @FormUrlEncoded
+    Call<Model_UmrohByID> getUmrohByID(@Field("nomor_umroh") String nomor_umroh);
+
 
     @POST("Umrota/Umrota")
     @FormUrlEncoded
@@ -42,24 +59,26 @@ public interface Umrota_Service {
             @Field("password") String password
     );
 
-    @POST("Umrota_Costumer/Costumer_Profil")
+    @PUT("Umrota_Costumer/Costumer_Update")
     @FormUrlEncoded
     Call<Model_User> cProfil(
-            @Field("nomorCostumer") String nomorCostumer,
-            @Field("id_nama") String id_nama,
-            @Field("id_alamat") String id_alamat,
-            @Field("id_notlp") String id_notlp,
-            @Field("id_nonpwp") String id_nonpwp,
-            @Field("id_nopassport") String id_nopassport,
-            @Field("id_nomor_ktp") String id_nomor_ktp,
-            @Field("id_email") String id_email,
-            @Field("id_usia") String id_usia,
-            @Field("id_jk") String id_jk,
-            @Field("id_nokartukesehatan") String id_nokartukesehatan,
-            @Field("id_username") String id_username,
-            @Field("id_password") String id_password
-    );
+            @Field("nomor_costumer") String nomor_costumer,
+            @Field("nama_costumer") String nama_costumer,
+            @Field("alamat_costumer") String id_alamat,
+            @Field("nomor_tlp") String alamat_costumer,
+            @Field("nomor_npwp") String nomor_npwp,
+            @Field("nomor_passport") String nomor_passport,
+            @Field("nomor_ktp") String nomor_ktp,
+            @Field("email") String email,
+            @Field("usia") String usia,
+            @Field("jenis_kelamin") String jenis_kelamin,
+            @Field("create_date") String create_date,
+            @Field("nomor_kartu_kesehatan") String nomor_kartu_kesehatan,
+            @Field("username") String username,
+            @Field("password") String password
 
+
+    );
 
     @POST("Umrota_Costumer/Costumer_Regisiter")
     @FormUrlEncoded
@@ -72,14 +91,9 @@ public interface Umrota_Service {
     );
 
 
-
-
-
-
-
-
-
-
+    @Multipart
+    @POST("Umrota_Costumer/Upload_Document")
+    Call<Response> uDocument(@Part MultipartBody.Part image, @Part("file") RequestBody name);
 
 
 }

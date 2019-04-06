@@ -16,7 +16,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:src="@drawable/ic_user"
-        app:civ_border_color="@color/colorWhite"
+        app:civ_border_color="@color/colorAccent"
         app:civ_border_width="1dp" />
 
     <TextView
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:textColor="@color/colorAccent"
         android:text="Tatang Roswandi Ganda Wijaya"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

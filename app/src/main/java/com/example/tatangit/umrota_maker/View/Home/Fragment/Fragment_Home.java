@@ -1,5 +1,6 @@
 package com.example.tatangit.umrota_maker.View.Home.Fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -28,8 +29,6 @@ public class Fragment_Home extends Fragment {
     FragmentManager fragmentManager;
 
 
-
-
     public Fragment_Home() {
     }
 
@@ -37,7 +36,6 @@ public class Fragment_Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         root = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, root);
         setupNavigationView();
@@ -69,9 +67,9 @@ public class Fragment_Home extends Fragment {
     protected void selectmInfo(MenuItem item) {
         item.setChecked(true);
         switch (item.getItemId()) {
-//            case R.id.mUmrohMaker:
-//                pushFragment(new Fragment_Home_Weather());
-//                break;
+            case R.id.mUmrohHome:
+                pushFragment(new Fragment_Home_Index());
+                break;
             case R.id.mUmroh:
                 pushFragment(new Fragment_Home_Umroh());
                 break;

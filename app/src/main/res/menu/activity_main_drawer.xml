@@ -15,11 +15,6 @@
             android:title="My Profil" />
 
         <item
-            android:id="@+id/mAlquran"
-            android:icon="@drawable/ic_book"
-            android:title="Digital Al-Quran" />
-
-        <item
             android:id="@+id/mInfo"
             android:icon="@drawable/ic_info"
             android:title="Informasi" />

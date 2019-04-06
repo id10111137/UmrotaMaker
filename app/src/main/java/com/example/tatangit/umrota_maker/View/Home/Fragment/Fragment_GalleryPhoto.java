@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import mehdi.sakout.dynamicbox.DynamicBox;
 
 public class Fragment_GalleryPhoto extends Fragment {
 
@@ -46,11 +47,12 @@ public class Fragment_GalleryPhoto extends Fragment {
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
 
-
-
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
         DummyData();
+        DynamicBox box = new DynamicBox(getContext(),gridView);
+        box.showLoadingLayout();
+
         gridView.setAdapter(new Adapter_Gallery(model_company_galleries,getContext()));
         return root;
     }

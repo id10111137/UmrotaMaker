@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,6 @@ public class Adapter_Promo extends ArrayAdapter<M_PromoItem> {
     }
 
     private static class ViewHolder {
-        LinearLayout lyStar;
         ImageView id_img_home;
         TextView id_nilai_discount;
         TextView id_perusahaan;
@@ -87,7 +87,7 @@ public class Adapter_Promo extends ArrayAdapter<M_PromoItem> {
             viewHolder.id_keberangkatan = convertView.findViewById(R.id.id_keberangkatan);
             viewHolder.id_harga = convertView.findViewById(R.id.id_harga);
 
-            viewHolder.lyStar = convertView.findViewById(R.id.id_ly_star);
+//            viewHolder.lyStar = convertView.findViewById(R.id.id_ly_star);
 
 
             result = convertView;
@@ -112,21 +112,10 @@ public class Adapter_Promo extends ArrayAdapter<M_PromoItem> {
         });
 
 
-        assert dataModel != null;
         viewHolder.id_nilai_discount.setText("Promo " + dataModel.getHargaUmroh());
         viewHolder.id_perusahaan.setText(dataModel.getNamaPerusahaan());
         viewHolder.id_keberangkatan.setText(dataModel.getKeberangkatan());
         viewHolder.id_harga.setText(dataModel.getDiscountPercent());
-        ImageView image = null;
-        for (int i = 1; i < 3; i++) {
-             image = new ImageView(getContext());
-            image.setImageResource(R.drawable.ic_star);
-            image.setLayoutParams(new android.view.ViewGroup.LayoutParams(30, 30));
-            image.setMaxHeight(20);
-            image.setMaxWidth(20);
-        }
-        viewHolder.lyStar.addView(image);
-
         return convertView;
     }
 
@@ -138,11 +127,10 @@ public class Adapter_Promo extends ArrayAdapter<M_PromoItem> {
         } else {
             for (M_PromoItem wp : originDataSet) {
                 if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault())
+                        .contains(charText) || wp.getHargaUmroh().toLowerCase(Locale.getDefault())
+                        .contains(charText) || wp.getAlamatPerusahaan().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
-                } else {
-
-                    Toast.makeText(context, "Data Tidak Ada", Toast.LENGTH_SHORT).show();
                 }
             }
         }

@@ -97,6 +97,7 @@ public class Adapter_DCompany extends ArrayAdapter<M_Company_Umroh_Item> {
 
         assert dataModel != null;
         Picasso.get().load(dataModel.getLogo()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_img_dcompany, new Callback() {
+
             @Override
             public void onSuccess() {
 
@@ -112,7 +113,7 @@ public class Adapter_DCompany extends ArrayAdapter<M_Company_Umroh_Item> {
         viewHolder.id_name_company.setText(dataModel.getNamaPerusahaan());
         viewHolder.id_Ddepart.setText("Keberangkatan : " + dataModel.getKeberangkatan());
         viewHolder.id_Darrival.setText("Kedatangan: " + dataModel.getKepulangan());
-        viewHolder.id_qty.setText("Jumlah Kursi : " + dataModel.getMaxOrangUmroh() );
+        viewHolder.id_qty.setText("Jumlah Kursi : " + dataModel.getMaxOrangUmroh());
         viewHolder.id_booking.setText("Sisa Booking: " + ((Integer.parseInt(dataModel.getMaxOrangUmroh()) - Integer.parseInt(dataModel.getMinOrangUmroh()))));
 
 
@@ -126,12 +127,12 @@ public class Adapter_DCompany extends ArrayAdapter<M_Company_Umroh_Item> {
             dataSet.addAll(originDataSet);
         } else {
             for (M_Company_Umroh_Item wp : originDataSet) {
-                if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault())
-                        .contains(charText)) {
+                if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault()).contains(charText)
+                        ||
+                        wp.getKeberangkatan().toLowerCase(Locale.getDefault()).contains(charText)
+                        ||
+                        wp.getKepulangan().toLowerCase(Locale.getDefault()).contains(charText)) {
                     dataSet.add(wp);
-                } else {
-
-                    Toast.makeText(context, "Data Tidak Ada", Toast.LENGTH_SHORT).show();
                 }
             }
         }

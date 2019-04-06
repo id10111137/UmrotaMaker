@@ -38,9 +38,6 @@ public class Activity_InfoCompany extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
     }
 
 

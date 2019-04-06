@@ -23,16 +23,16 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_user"
-                app:civ_border_color="@color/colorWhite"
+                app:civ_border_color="@color/colorAccent"
                 app:civ_border_width="1dp" />
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="@dimen/m_10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/m_10dp"
             android:orientation="vertical"
             android:padding="@dimen/m_10dp">
 
@@ -47,10 +47,11 @@
 
             <EditText
                 android:id="@+id/id_nama"
-                android:inputType="text"
                 android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
                 android:layout_height="wrap_content"
-                android:hint="my Name" />
+                android:hint="Full Nama"
+                android:inputType="text" />
 
 
             <TextView
@@ -64,10 +65,11 @@
 
             <EditText
                 android:id="@+id/id_alamat"
-                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Alamat" />
+                android:textColor="@color/colorPrimary"
+                android:hint="Alamat"
+                android:inputType="text" />
 
 
             <TextView
@@ -81,10 +83,11 @@
 
             <EditText
                 android:id="@+id/id_notlp"
-                android:inputType="phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nomor telephone" />
+                android:hint="Nomor telephone"
+                android:inputType="phone"
+                android:textColor="@color/colorPrimary" />
 
 
             <TextView
@@ -92,7 +95,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor Npwp"
-                android:inputType="text"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/m_15dp"
                 android:textStyle="bold" />
@@ -101,8 +103,9 @@
                 android:id="@+id/id_nonpwp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="No.Npwp" />
+                android:hint="No.Npwp"
+                android:textColor="@color/colorPrimary"
+                android:inputType="text" />
 
 
             <TextView
@@ -117,9 +120,10 @@
             <EditText
                 android:id="@+id/id_nopassport"
                 android:layout_width="match_parent"
-                android:inputType="text"
                 android:layout_height="wrap_content"
-                android:hint="my Name" />
+                android:textColor="@color/colorPrimary"
+                android:hint="Nomor Passwport"
+                android:inputType="text" />
 
 
             <TextView
@@ -133,10 +137,11 @@
 
             <EditText
                 android:id="@+id/id_nomor_ktp"
-                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No.Ktp" />
+                android:textColor="@color/colorPrimary"
+                android:hint="No.Ktp"
+                android:inputType="text" />
 
 
             <TextView
@@ -150,10 +155,11 @@
 
             <EditText
                 android:id="@+id/id_email"
-                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="my Email" />
+                android:textColor="@color/colorPrimary"
+                android:hint="information@umrota.com"
+                android:inputType="textEmailAddress" />
 
 
             <TextView
@@ -167,10 +173,11 @@
 
             <EditText
                 android:id="@+id/id_usia"
-                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Usia" />
+                android:hint="Usia"
+                android:textColor="@color/colorPrimary"
+                android:inputType="number" />
 
 
             <TextView
@@ -184,10 +191,10 @@
 
             <EditText
                 android:id="@+id/id_jk"
-                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Jenis Kelamin"
+                android:inputType="text"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/m_15dp"
                 android:textStyle="bold" />
@@ -205,9 +212,10 @@
             <EditText
                 android:id="@+id/id_nokartukesehatan"
                 android:layout_width="match_parent"
-                android:inputType="text"
                 android:layout_height="wrap_content"
-                android:hint="No Kartu Kesehatan" />
+                android:textColor="@color/colorPrimary"
+                android:hint="No Kartu Kesehatan"
+                android:inputType="text" />
 
 
             <TextView
@@ -221,10 +229,11 @@
 
             <EditText
                 android:id="@+id/id_username"
-                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username" />
+                android:hint="Username"
+                android:textColor="@color/colorPrimary"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/txt_password"
@@ -236,11 +245,12 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:inputType="textPassword"
                 android:id="@+id/id_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password" />
+                android:textColor="@color/colorPrimary"
+                android:hint="Password"
+                android:inputType="textPassword" />
 
             <LinearLayout
                 android:id="@+id/id_goSimpan"
@@ -248,7 +258,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/m_30dp"
-                android:background="@drawable/bottom"
+                android:background="@drawable/bottom_signup"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="5dp">

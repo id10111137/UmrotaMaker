@@ -101,10 +101,11 @@ public class Adapter_Umroh extends ArrayAdapter<M_Company_Item> {
             }
         });
 
-        viewHolder.id_nama_perusahaan.setText("Wellcome To "+dataModel.getNamaPerusahaan());
-        viewHolder.id_alamat.setText(dataModel.getAlamatPerusahaan());
-        viewHolder.id_layanan.setText(dataModel.getEmail());
-        viewHolder.id_penerbangan.setText(dataModel.getJenisPerusahaan());
+
+        viewHolder.id_nama_perusahaan.setText("Selamat Datang Di "+dataModel.getNamaPerusahaan());
+        viewHolder.id_alamat.setText("Alamat : "+dataModel.getAlamatPerusahaan());
+        viewHolder.id_layanan.setText("Jenis Layanan : "+dataModel.getEmail());
+        viewHolder.id_penerbangan.setText("Jumlah Penerbangan : "+dataModel.getJenisPerusahaan());
 
 
         return convertView;
@@ -118,14 +119,14 @@ public class Adapter_Umroh extends ArrayAdapter<M_Company_Item> {
         } else {
             for (M_Company_Item wp : originDataSet) {
                 if (wp.getNamaPerusahaan().toLowerCase(Locale.getDefault())
+                        .contains(charText) || wp.getAlamatPerusahaan().toLowerCase(Locale.getDefault())
+                        .contains(charText) || wp.getEmail().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
-                } else {
-
-                    Toast.makeText(context, "Data Tidak Ada", Toast.LENGTH_SHORT).show();
                 }
             }
         }
         notifyDataSetChanged();
     }
+
 }

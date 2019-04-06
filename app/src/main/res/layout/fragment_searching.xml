@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m_50dp"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        tools:ignore="UselessParent">
+
+
+        <ImageView
+            android:id="@+id/id_img_close"
+            android:layout_width="@dimen/m_30dp"
+            android:layout_height="@dimen/m_30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="11dp"
+            android:src="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/m_10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Perusahaan" />
+
+
+        <EditText
+            android:id="@+id/id_nama_perusahaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Perusahaan" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lokasi Pencarian" />
+
+
+        <Spinner
+            android:id="@+id/id_kota"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:autofillHints="Pilih Kota Terdekat" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/id_goSearching"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/m_30dp"
+        android:layout_marginTop="@dimen/m_30dp"
+        android:background="@drawable/bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cari"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/m_15dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

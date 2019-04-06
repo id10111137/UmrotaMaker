@@ -1,14 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
     <include
+        layout="@layout/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/id_img_checkout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/colorPrimary" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/m_10dp">
+
+
+                <TextView
+                    android:id="@+id/id_namecompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_10dp"
+                    android:text="Pt.Ganda Wijaya Group"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_20dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Perjalanan"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Umroh"
+
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_name_umroh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+
+                        android:text="Umroh Bersama Kami"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jadwal Keberangkatan"
+
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_jadwal_keberangkatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="right"
+                        android:text="28 jan 2019"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Jadwal Kepulangan"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_jadwal_kepulangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+
+                        android:text="28 jan 2019"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Harga Ticket"
+
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_harga"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Rp.0"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hotel Tujuan"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_hotel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Hotel Kurma Mekar Jaya"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Promo"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_kapasitas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Rp. 0"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Penjelasan :"
+
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_deskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ini adalah descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi descripsi."
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m_20dp"
+                android:layout_marginRight="@dimen/m_20dp"
+                android:background="@color/colorWhite"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Ticket :"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_20dp" />
+
+                <EditText
+                    android:id="@+id/id_jumlah_ticket"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:hint="100"
+                    android:inputType="number"
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/id_goCheckout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/action_bar" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/m_10dp"
+        android:background="@drawable/bottom_signup"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pesan Sekarang"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/m_15dp" />
+    </LinearLayout>
 
 </LinearLayout>

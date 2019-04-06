@@ -37,7 +37,6 @@ public class Fragment_Information extends Fragment {
     public Fragment_Information() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

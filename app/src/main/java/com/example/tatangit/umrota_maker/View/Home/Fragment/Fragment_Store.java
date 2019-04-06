@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import mehdi.sakout.dynamicbox.DynamicBox;
 
 public class Fragment_Store extends Fragment {
 
@@ -51,6 +52,9 @@ public class Fragment_Store extends Fragment {
         DummyData();
         adapter_store = new Adapter_Store(modelStores, getContext());
         id_lv_store.setAdapter(adapter_store);
+
+        DynamicBox box = new DynamicBox(getContext(),id_lv_store);
+        box.showLoadingLayout();
 
         return root;
     }

@@ -1,60 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     android:padding="@dimen/m_10dp">
 
     <ImageView
         android:id="@+id/id_icon_bg"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="@dimen/m_40dp"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
-        android:background="@drawable/ic_umroh" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="UmrotaApps"
-        android:textColor="@color/colorWhite"
-        android:layout_marginBottom="@dimen/m_20dp"
-        android:textSize="@dimen/m_20dp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="@dimen/m_10dp"
+        android:layout_marginTop="@dimen/m_10dp"
+        android:background="@drawable/logo" />
 
 
     <TextView
         android:layout_width="wrap_content"
-        android:textColor="@color/colorWhite"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/m_15dp"
-        android:text="Email" />
+        android:layout_gravity="center"
+        android:text="Aman~Mudah"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/m_15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Menuju Baituloh"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/m_15dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/m_15dp" />
+
 
     <EditText
         android:id="@+id/id_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="username"
-        android:textColor="@color/colorWhite"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorWhite" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Password"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/m_15dp"
-        android:text="Password" />
+        android:textSize="@dimen/m_15dp" />
 
     <EditText
         android:id="@+id/id_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/colorWhite" />
 
 
     <LinearLayout
@@ -72,10 +81,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Login"
+            android:text="Masuk"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/m_15dp" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/id_goGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/m_10dp"
+        android:background="@drawable/bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_google" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Masuk Dengan Google"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/m_15dp" />
+
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,20 +122,19 @@
         android:orientation="horizontal"
         android:padding="@dimen/m_10dp">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorWhite"
             android:text="Belum Mempunyai Account?."
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/m_15dp" />
 
         <TextView
             android:id="@+id/id_Goregister"
             android:layout_width="wrap_content"
-            android:textColor="@color/colorWhite"
             android:layout_height="wrap_content"
-            android:text=" Register"
+            android:text=" Daftar"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/m_15dp"
             android:textStyle="italic" />
 

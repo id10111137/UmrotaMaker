@@ -1,60 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="1dp"
+    android:paddingTop="1dp">
 
-    <ImageView
-        android:id="@+id/id_img_dcompany"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:contentDescription="TODO" />
-
-
-    <LinearLayout
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/idCardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="7dp"
+        android:elevation="7dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="6dp"
+        app:cardPreventCornerOverlap="false">
 
-
-        <TextView
-            android:id="@+id/id_subject_company"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Umroh Sukses January" />
-
-        <TextView
-            android:id="@+id/id_name_company"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pt.ganda wijaya" />
-
-        <TextView
-            android:id="@+id/id_Ddepart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Berangkat : 2019/01/01" />
-
-        <TextView
-            android:id="@+id/id_Darrival"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Berangkat : 2019/01/20" />
-
-        <TextView
-            android:id="@+id/id_qty"
-            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Jumlah Keberangkatan 100 orang" />
+            android:orientation="horizontal"
+            android:padding="@dimen/m_5dp">
 
-        <TextView
-            android:id="@+id/id_booking"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Sisa Kursi 30 Kursi" />
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/id_img_dcompany"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="TODO" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Rp. 50000"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m_5dp"
+                android:orientation="vertical">
 
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/id_subject_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Umroh Sukses January"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
 
+                <TextView
+                    android:id="@+id/id_name_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pt.ganda wijaya"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/id_Ddepart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berangkat : 2019/01/01"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/id_Darrival"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pulang : 2019/01/20"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/id_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Jumlah Keberangkatan 100 orang"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/id_booking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Sisa Kursi 30 Kursi"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
+
+

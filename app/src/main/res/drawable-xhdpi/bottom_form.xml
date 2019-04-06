@@ -19,5 +19,5 @@
         android:height="40dp" />
     <stroke
         android:width="3dp"
-        android:color="@color/colorSnow" />
+        android:color="@color/colorWhite" />
 </shape>

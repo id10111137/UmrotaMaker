@@ -1,5 +1,6 @@
 package com.example.tatangit.umrota_maker.View.Home.Fragment;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,17 +25,18 @@ import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
 import com.example.tatangit.umrota_maker.Config.Model.M_Company;
 import com.example.tatangit.umrota_maker.Config.Model.M_Company_Item;
 import com.example.tatangit.umrota_maker.R;
-import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import mehdi.sakout.dynamicbox.DynamicBox;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -42,16 +49,33 @@ public class Fragment_Home_Umroh extends Fragment {
     CircleImageView toolbar_iconView;
     View root;
 
-    @BindView(R.id.id_cari)
-    EditText id_cari;
-
     @BindView(R.id.id_lv_umroh)
     ListView id_lv_umroh;
+
+    @BindView(R.id.id_sv_umroh)
+    SearchView id_sv_umroh;
 
     Adapter_Umroh adapter_umroh;
     ArrayList<Model_Umroh> model_umroh;
     Umrota_Service mUmrotaService;
 
+    AlertDialog alertDialog = null;
+
+
+    private String[] City = {
+            "Jakarta",
+            "Bandung", "Surabaya",
+            "Makasar",
+            "Papua",
+            "Aceh",
+            "Malang",
+            "Medan",
+            "Lamongan",
+            "Semarang",
+            "Papua"
+    };
+
+    DynamicBox box;
 
     public Fragment_Home_Umroh() {
     }
@@ -66,27 +90,104 @@ public class Fragment_Home_Umroh extends Fragment {
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("UMROH");
         mUmrotaService = Api_Utils.getSOService();
-
-
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_shoping));
-        toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+        toolbar_iconView.setImageDrawable(null);
+
+
+        id_lv_umroh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                intent = new Intent(getContext(), Activity_Chart.class);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                intent = new Intent(getContext(), Activity_DCompany.class);
+                intent.putExtra("nomor_company", adapter_umroh.getItem(position).getNomorCompany());
+                intent.putExtra("nama_perusahaan", adapter_umroh.getItem(position).getNamaPerusahaan());
                 startActivity(intent);
             }
         });
-        mUmrotaService.getAllCompany().enqueue(new Callback<M_Company>() {
+
+
+
+
+        loadUmroh("", "");
+        box = new DynamicBox(getContext(),id_lv_umroh);
+        box.showLoadingLayout();
+
+        id_sv_umroh.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                String text = s;
+                adapter_umroh.filter(text);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                String text = s;
+                adapter_umroh.filter(text);
+                return false;
+            }
+        });
+
+
+        return root;
+    }
+
+    private void getAlertDialog() {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+
+        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_searching, null);
+
+        //Now we need an AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.create().getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        //setting the view of the builder to our custom view that we already inflated
+
+        builder.setCancelable(false);
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        alertDialog = builder.create();
+        alertDialog.show();
+
+        LinearLayout lyGoSearching = dialogView.findViewById(R.id.id_goSearching);
+        final Spinner id_kota = dialogView.findViewById(R.id.id_kota);
+        final EditText id_nama_perusahaan = dialogView.findViewById(R.id.id_nama_perusahaan);
+        // inisialiasi Array Adapter dengan memasukkan string array di atas
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item, City);
+
+        id_kota.setAdapter(adapter);
+
+        ImageView id_img_close = dialogView.findViewById(R.id.id_img_close);
+        id_img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+                box.setLoadingMessage("Loading your music ...");
+            }
+        });
+
+        lyGoSearching.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadUmroh(id_nama_perusahaan.getText().toString(), id_kota.getSelectedItem().toString());
+                alertDialog.dismiss();
+            }
+        });
+
+    }
+
+
+    private void loadUmroh(String Nama_Perusahaan, String Alamat_Perusahaan) {
+        mUmrotaService.postAllCompany(Nama_Perusahaan, Alamat_Perusahaan).enqueue(new Callback<M_Company>() {
             @Override
             public void onResponse(Call<M_Company> call, retrofit2.Response<M_Company> response) {
-
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
 
                     final List<M_Company_Item> MCompanyItemList = response.body().getMessage();
                     adapter_umroh = new Adapter_Umroh(MCompanyItemList, getContext());
                     adapter_umroh.notifyDataSetChanged();
                     id_lv_umroh.setAdapter(adapter_umroh);
+                    id_lv_umroh.invalidate();
 
                 } else {
                     Toast.makeText(getContext(), "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
@@ -95,20 +196,10 @@ public class Fragment_Home_Umroh extends Fragment {
 
             @Override
             public void onFailure(Call<M_Company> call, Throwable t) {
-                Log.d("Tampilkan",t.toString());
+                Log.d("Tampilkan", t.toString());
             }
         });
-
-        id_lv_umroh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                intent = new Intent(getContext(), Activity_DCompany.class);
-                intent.putExtra("nomor_company", adapter_umroh.getItem(position).getNomorCompany());
-                intent.putExtra("nama_perusahaan",adapter_umroh.getItem(position).getNamaPerusahaan());
-                startActivity(intent);
-            }
-        });
-
-        return root;
     }
+
+
 }
