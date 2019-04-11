@@ -1,15 +1,20 @@
 package com.example.tatangit.umrota_maker.View.Home.Fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_CompanyInfo;
 
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -22,8 +27,10 @@ public class Fragment_Legalitas extends Fragment {
     TextView mTitle;
     CircleImageView toolbar_iconView;
     View root;
+    public String nCompany;
 
     public Fragment_Legalitas() {
+
     }
 
     @Override
@@ -32,8 +39,6 @@ public class Fragment_Legalitas extends Fragment {
         root = inflater.inflate(R.layout.fragment_lisensi, container, false);
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
-
-
 
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);

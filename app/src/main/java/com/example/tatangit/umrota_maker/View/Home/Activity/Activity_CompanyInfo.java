@@ -62,11 +62,13 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText(" Wellcome "+nameCompany);
+        mTitle.setText("Selamat Datang "+nameCompany);
         toolbar_iconView = toolbar.findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
         setupViewPager(viewPager);
         tableLayout.setupWithViewPager(viewPager);
+
+
     }
 
     @Override
