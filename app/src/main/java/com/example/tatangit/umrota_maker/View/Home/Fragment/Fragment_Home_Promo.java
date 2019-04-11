@@ -87,7 +87,7 @@ public class Fragment_Home_Promo extends Fragment {
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         try {
             if (!UserModelManager.getInstance(getContext()).isLoggedIn()) {
-                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.login));
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_login));
                 toolbar_iconView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

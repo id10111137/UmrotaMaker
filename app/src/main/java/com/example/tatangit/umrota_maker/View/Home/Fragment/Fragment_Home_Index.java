@@ -68,7 +68,7 @@ public class Fragment_Home_Index extends Fragment {
         try {
 
             if (!UserModelManager.getInstance(getContext()).isLoggedIn()) {
-                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.login));
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_login));
                 toolbar_iconView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -86,10 +86,9 @@ public class Fragment_Home_Index extends Fragment {
 
         //create list of slides
         List<Slide> slideList = new ArrayList<>();
-        slideList.add(new Slide(0, "http://cssslider.com/sliders/demo-20/data1/images/picjumbo.com_img_4635.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
-        slideList.add(new Slide(1, "http://cssslider.com/sliders/demo-12/data1/images/picjumbo.com_hnck1995.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
-        slideList.add(new Slide(2, "http://cssslider.com/sliders/demo-19/data1/images/picjumbo.com_hnck1588.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
-        slideList.add(new Slide(3, "http://wowslider.com/sliders/demo-18/data1/images/shanghai.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
+        slideList.add(new Slide(0, "http://belajarislam.com/wp-content/uploads/2018/07/3-manfaat-umroh.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
+        slideList.add(new Slide(1, "https://cdn0-production-images-kly.akamaized.net/LK9CKnpT6Sm2Via7qVvX4ZmeYZQ=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2232366/original/033419400_1527668277-Paket_Umroh.jpg", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
+        slideList.add(new Slide(2, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX8sElKD58XwAgRMts7NX4JWO3vAF92E34gtJPCXgu1W9s67HR5g", getResources().getDimensionPixelSize(R.dimen.slider_image_corner)));
 
         slider.setItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
