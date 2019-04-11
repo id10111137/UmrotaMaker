@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -67,9 +68,9 @@ public class MainActivity extends AppCompatActivity
 
 
         if (!hellper_umrota.checkConnection(getApplicationContext())) {
-            Toast.makeText(this, "Interet Not Connection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Upps,Sepertinya Jaringan Internet anda bermasalah", Toast.LENGTH_SHORT).show();
         } else if (!hellper_umrota.isLocationEnabled(getApplicationContext())) {
-            Toast.makeText(this, "Location Not Enable", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mohon Maaf Lokasi Belum Terjangkau", Toast.LENGTH_SHORT).show();
             mIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(mIntent);
         }
@@ -99,11 +100,21 @@ public class MainActivity extends AppCompatActivity
         imgProfile = (ImageView) navHeader.findViewById(R.id.imageView);
 
 
+        Menu menuNav = navigationView.getMenu();
+
+
+
         try {
 
             if (!UserModelManager.getInstance(getApplicationContext()).isLoggedIn()) {
-                startActivity(new Intent(this, Activity_Login.class));
-                finish();
+                MenuItem mProfil = menuNav.findItem(R.id.mProfil);
+                mProfil.setVisible(false);
+                MenuItem mLogout = menuNav.findItem(R.id.mLogout);
+                mLogout.setVisible(false);
+                txt_namesheader.setText(null);
+                imgProfile.setVisibility(View.GONE);
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();

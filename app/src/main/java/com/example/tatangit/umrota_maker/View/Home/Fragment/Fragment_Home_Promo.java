@@ -22,11 +22,14 @@ import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
 import com.example.tatangit.umrota_maker.Config.Model.M_Promo;
 import com.example.tatangit.umrota_maker.Config.Model.M_PromoItem;
 import com.example.tatangit.umrota_maker.Hellper.Calendars;
+import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.CheckOut.Activity.Activity_Checkout;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Promo;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
+import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +85,23 @@ public class Fragment_Home_Promo extends Fragment {
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("UMROH PROMO");
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(null);
+        try {
+            if (!UserModelManager.getInstance(getContext()).isLoggedIn()) {
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.login));
+                toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(getContext(), Activity_Login.class);
+                        startActivity(intent);
+                    }
+                });
+            }else{
+                toolbar_iconView.setImageDrawable(null);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
 //        toolbar_iconView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -120,9 +139,21 @@ public class Fragment_Home_Promo extends Fragment {
         id_lv_promo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                intent = new Intent(getContext(), Activity_Checkout.class);
-                intent.putExtra("no_umroh", adapter_promo.getItem(position).getNomorUmroh());
-                startActivity(intent);
+
+                try {
+
+                    if (!UserModelManager.getInstance(getContext()).isLoggedIn()) {
+                        toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.login));
+                        intent = new Intent(getContext(), Activity_Login.class);
+                        startActivity(intent);
+                    }else{
+                        intent = new Intent(getContext(), Activity_Checkout.class);
+                        intent.putExtra("no_umroh", adapter_promo.getItem(position).getNomorUmroh());
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

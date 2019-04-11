@@ -23,8 +23,7 @@ public class Activity_Fikih_Haji_Detail extends AppCompatActivity {
 
     String Persiapan_;
 
-    @BindView(R.id.id_wb)
-    WebView webview;
+
 
     @SuppressLint("SetTextI18n")
     @Override

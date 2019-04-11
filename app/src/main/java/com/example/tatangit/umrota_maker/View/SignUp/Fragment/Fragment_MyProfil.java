@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,13 +20,10 @@ import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
 import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
-import com.example.tatangit.umrota_maker.Hellper.Hellper_Umrota;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
-import com.example.tatangit.umrota_maker.MainActivity;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_User;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
-import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
@@ -36,11 +32,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
-import mehdi.sakout.dynamicbox.DynamicBox;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Field;
 
 public class Fragment_MyProfil extends Fragment {
 
@@ -88,7 +82,7 @@ public class Fragment_MyProfil extends Fragment {
     public Fragment_MyProfil() {
     }
 
-    KProgressHUD hud;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,13 +96,6 @@ public class Fragment_MyProfil extends Fragment {
         mUmrotaService = Api_Utils.getSOService();
         setProfil();
 
-        hud = KProgressHUD.create(getContext())
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("Please wait")
-                .setDetailsLabel("Downloading data")
-                .setCancellable(true)
-                .setAnimationSpeed(2)
-                .setDimAmount(0.5f);
 
         return root;
     }
@@ -211,7 +198,6 @@ public class Fragment_MyProfil extends Fragment {
 
     @OnClick(R.id.id_goSimpan)
     public void goSimpan() {
-        hud.show();
         mUmrotaService.cProfil(model_userItem.getNomorCostumer(), id_nama.getText().toString(), id_alamat.getText().toString(),
                 id_notlp.getText().toString(), id_alamat.getText().toString(), id_nopassport.getText().toString(), id_nomor_ktp.getText().toString(),
                 id_email.getText().toString(), id_usia.getText().toString(), id_jk.getText().toString(), "", id_nokartukesehatan.getText().toString()
@@ -232,18 +218,15 @@ public class Fragment_MyProfil extends Fragment {
                     }
                     UserModelManager.getInstance(getContext()).UserLogin(model_userItem);
                     setProfil();
-                    hud.dismiss();
 
                 } else {
                     Toast.makeText(getContext(), "Gagal Mengambil Data" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    hud.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<Model_User> call, Throwable t) {
                 Log.d("Tampilkan", "" + call.toString());
-                hud.dismiss();
             }
         });
 

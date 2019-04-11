@@ -104,8 +104,8 @@ public class Adapter_Umroh extends ArrayAdapter<M_Company_Item> {
 
         viewHolder.id_nama_perusahaan.setText("Selamat Datang Di "+dataModel.getNamaPerusahaan());
         viewHolder.id_alamat.setText("Alamat : "+dataModel.getAlamatPerusahaan());
-        viewHolder.id_layanan.setText("Jenis Layanan : "+dataModel.getEmail());
-        viewHolder.id_penerbangan.setText("Jumlah Penerbangan : "+dataModel.getJenisPerusahaan());
+        viewHolder.id_layanan.setText("No Npwp : "+dataModel.getNoNpwp());
+        viewHolder.id_penerbangan.setText("No Siup : "+dataModel.getNoSiup());
 
 
         return convertView;

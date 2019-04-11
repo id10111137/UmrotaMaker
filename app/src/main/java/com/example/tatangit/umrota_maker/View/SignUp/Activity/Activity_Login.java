@@ -1,11 +1,10 @@
 package com.example.tatangit.umrota_maker.View.SignUp.Activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,13 +15,13 @@ import com.example.tatangit.umrota_maker.MainActivity;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_User;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
-import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,9 +38,7 @@ public class Activity_Login extends AppCompatActivity {
     EditText id_password;
     Model_UserItem model_userItem;
 
-    KProgressHUD hud;
-
-
+    SweetAlertDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,42 +48,16 @@ public class Activity_Login extends AppCompatActivity {
         mUmrotaService = Api_Utils.getSOService();
 
 
-        hud = KProgressHUD.create(this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("Please wait")
-                .setDetailsLabel("Downloading data")
-                .setCancellable(true)
-                .setAnimationSpeed(2)
-                .setDimAmount(0.5f);
 
 
 
+        pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Mohon Menunggu");
+        pDialog.setCancelable(false);
 
 
-         /*
-            Start Slider Into
-            No Izin Travel
-            Checkout // booking seat
-            No Kartu kesehatan // delete
-            akte / delete
-           1.  passpoert
-           2. mengitis
-           3. Fvs
-         */
 
-//        Thread t = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                SharedPreferences sharedPreferences = getSharedPreferences(Config.FLAG, Context.MODE_PRIVATE);
-//                if (sharedPreferences.getBoolean(Config.FLAG, true)) {
-//                    startActivity(new Intent(Activity_Login.this, DefaultIntro.class));
-//                    SharedPreferences.Editor e = sharedPreferences.edit();
-//                    e.putBoolean(Config.FLAG, false);
-//                    e.apply();
-//                }
-//            }
-//        });
-//        t.start();
 
         if (UserModelManager.getInstance(getApplicationContext()).isLoggedIn()) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -101,17 +72,17 @@ public class Activity_Login extends AppCompatActivity {
     @OnClick(R.id.id_goLogin)
     public void goLogin() {
 
-        hud.show();
         if(id_username.getText().toString().isEmpty()){
             id_username.setError("Field Username Belum Di Isi");
         }else if(id_password.getText().toString().isEmpty()){
             id_password.setError("Field Password Belum Di Isi");
         }else {
-
+            pDialog.show();
             mUmrotaService.LoginCostumer(id_username.getText().toString(), id_password.getText().toString()).enqueue(new Callback<Model_User>() {
                 @Override
                 public void onResponse(Call<Model_User> call, Response<Model_User> response) {
                     if (response.isSuccessful()) {
+                        pDialog.dismiss();
                         final List<Model_UserItem> lLogin = response.body().getMessage();
                         for (int i = 0; i < lLogin.size(); i++) {
                             model_userItem = new Model_UserItem(
@@ -132,15 +103,15 @@ public class Activity_Login extends AppCompatActivity {
                         startActivity(mIntent);
 
                     } else {
-
+                        pDialog.dismiss();
                         Toast.makeText(getApplicationContext(), "Gagal Untuk Menghubungkan Ke Server", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Model_User> call, Throwable t) {
+                    pDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Silahkan Periksa Username atau Password", Toast.LENGTH_SHORT).show();
-                    hud.dismiss();
                 }
             });
         }
@@ -150,5 +121,17 @@ public class Activity_Login extends AppCompatActivity {
     public void GoRegister() {
         mIntent = new Intent(getApplicationContext(), Activity_Register.class);
         startActivity(mIntent);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

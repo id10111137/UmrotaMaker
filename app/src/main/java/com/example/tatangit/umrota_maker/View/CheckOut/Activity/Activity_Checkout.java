@@ -18,7 +18,6 @@ import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Billing;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID_Item;
-import com.kaopiz.kprogresshud.KProgressHUD;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -71,7 +70,6 @@ public class Activity_Checkout extends AppCompatActivity {
     @BindView(R.id.id_img_checkout)
     ImageView id_img_checkout;
 
-    KProgressHUD hud;
 
 
 
@@ -93,21 +91,11 @@ public class Activity_Checkout extends AppCompatActivity {
         toolbar_iconView.setImageDrawable(getApplication().getResources().getDrawable(R.drawable.ic_info));
         toolbar_iconView.setOnClickListener(null);
 
-        hud = KProgressHUD.create(this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("Please wait")
-                .setBackgroundColor(R.color.colorAccent)
-                .setDetailsLabel("Downloading data")
-                .setCancellable(true)
-                .setAnimationSpeed(2)
-                .setDimAmount(0.5f);
-        hud.show();
 
 
         mUmrotaService.getUmrohByID(nomor_umroh.toString()).enqueue(new Callback<Model_UmrohByID>() {
             @Override
             public void onResponse(Call<Model_UmrohByID> call, Response<Model_UmrohByID> response) {
-                hud.dismiss();
                 if (response.isSuccessful()) {
                     model_umrohByID_items = response.body().getMessage();
                     for (int i = 0; i < model_umrohByID_items.size(); i++) {
@@ -135,15 +123,13 @@ public class Activity_Checkout extends AppCompatActivity {
 
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Failed Get Data", Toast.LENGTH_SHORT).show();
-                    hud.dismiss();
+                    Toast.makeText(getApplicationContext(), "Mohon Maaf Gagal Sinkronisasi Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Model_UmrohByID> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failed Internet Connection", Toast.LENGTH_SHORT).show();
-                hud.dismiss();
+                Toast.makeText(getApplicationContext(), "Upps,Sepertinya Jaringan Internet anda bermasalah", Toast.LENGTH_SHORT).show();
             }
         });
     }

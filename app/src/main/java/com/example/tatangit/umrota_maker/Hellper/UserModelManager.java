@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.tatangit.umrota_maker.Config.Api.GlobalVariable;
+import com.example.tatangit.umrota_maker.MainActivity;
 import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
 
@@ -86,12 +87,10 @@ public class UserModelManager {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(GlobalVariable.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
-        editor.apply();
         editor.commit();
-        Intent intent = new Intent(mContext, Activity_Login.class);
+        Intent intent = new Intent(mContext, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         mContext.startActivity(intent);
     }
-
-
 }

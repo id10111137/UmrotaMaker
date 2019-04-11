@@ -1,11 +1,9 @@
 package com.example.tatangit.umrota_maker.View.Home.Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,12 +12,10 @@ import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
 import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
 import com.example.tatangit.umrota_maker.Hellper.Hellper_Umrota;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
-import com.example.tatangit.umrota_maker.MainActivity;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID_Item;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
-import com.kaopiz.kprogresshud.KProgressHUD;
 import com.riyagayasen.easyaccordion.AccordionView;
 
 import java.util.List;
@@ -70,7 +66,6 @@ public class Activity_Billing extends AppCompatActivity {
     Hellper_Umrota hellper_umrota;
     AccordionView accordionView;
 
-    KProgressHUD hud;
 
 
 
@@ -89,14 +84,6 @@ public class Activity_Billing extends AppCompatActivity {
         qty = getIntent().getStringExtra("qty");
         accordionView = new AccordionView(getApplicationContext());
 
-        hud = KProgressHUD.create(this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setLabel("Mohon Tunggu")
-                .setDetailsLabel("Mengamnil Data")
-                .setCancellable(true)
-                .setAnimationSpeed(2)
-                .setDimAmount(0.5f);
-        hud.show();
 
         model_userItem = UserModelManager.getInstance(getApplicationContext()).getUser();
         id_myaccount.setText(model_userItem.getNamaCostumer());
@@ -113,7 +100,6 @@ public class Activity_Billing extends AppCompatActivity {
         mUmrotaService.getUmrohByID(nomor_umroh).enqueue(new Callback<Model_UmrohByID>() {
             @Override
             public void onResponse(Call<Model_UmrohByID> call, Response<Model_UmrohByID> response) {
-            hud.dismiss();
                 if (response.isSuccessful()) {
                     model_umrohByID_items = response.body().getMessage();
                     for (int i = 0; i < model_umrohByID_items.size(); i++) {
@@ -126,14 +112,12 @@ public class Activity_Billing extends AppCompatActivity {
                         id_jadwalkepulangan.setText(model_umrohByID_items.get(i).getKepulangan());
                     }
                 } else {
-                    hud.dismiss();
                     Toast.makeText(getApplicationContext(), "Data Belum Ditemukan", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Model_UmrohByID> call, Throwable t) {
-                hud.dismiss();
                 Toast.makeText(getApplicationContext(), "Silahkan Periksa Internet Anda", Toast.LENGTH_SHORT).show();
             }
         });

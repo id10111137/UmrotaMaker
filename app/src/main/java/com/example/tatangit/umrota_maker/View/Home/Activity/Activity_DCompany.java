@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,16 +20,13 @@ import com.example.tatangit.umrota_maker.Config.Model.M_Company_Umroh_Item;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.CheckOut.Activity.Activity_Checkout;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_DCompany;
-import com.example.tatangit.umrota_maker.View.Home.Model.Model_DCompany;
-import com.kaopiz.kprogresshud.KProgressHUD;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
-import mehdi.sakout.dynamicbox.DynamicBox;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -53,7 +49,7 @@ public class Activity_DCompany extends AppCompatActivity {
 
     @BindView(R.id.id_svd_umroh)
     SearchView id_svd_umroh;
-
+    SweetAlertDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,30 +79,35 @@ public class Activity_DCompany extends AppCompatActivity {
         });
 
 
+        pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Mohon Menunggu");
+        pDialog.setCancelable(false);
+        pDialog.show();
+
         mUmrotaService.getAllUmrohCompany(nomor_company).enqueue(new Callback<M_Company_Umroh>() {
             @Override
             public void onResponse(Call<M_Company_Umroh> call, Response<M_Company_Umroh> response) {
                 if (response.isSuccessful()) {
-
+                    pDialog.dismiss();
                     m_company_umroh_items = response.body().getMessage();
                     adapter_dCompany = new Adapter_DCompany(m_company_umroh_items, getApplicationContext());
                     adapter_dCompany.notifyDataSetChanged();
                     id_lv_dCompany.setAdapter(adapter_dCompany);
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                    pDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Ups, Gagal Sinkron", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<M_Company_Umroh> call, Throwable t) {
+                pDialog.dismiss();
                 Toast.makeText(getApplicationContext(), "Koneksi Internet Anda Kurang Bagus", Toast.LENGTH_SHORT).show();
             }
         });
-
-//        DynamicBox box = new DynamicBox(this,id_lv_dCompany);
-//        box.showLoadingLayout();
 
         id_lv_dCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -133,11 +134,6 @@ public class Activity_DCompany extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
-
     }
 
     @Override
