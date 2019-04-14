@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import com.example.tatangit.umrota_maker.Hellper.ShareData;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_GalleryPhoto;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_Home_Promo;
@@ -68,6 +69,8 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         setupViewPager(viewPager);
         tableLayout.setupWithViewPager(viewPager);
 
+        ShareData.data().value = nomor_company;
+
 
     }
 
@@ -103,6 +106,7 @@ public class Activity_CompanyInfo extends AppCompatActivity {
         public Fragment getItem(int position) {
             return mFragmentList.get(position);
         }
+
 
         @Override
         public int getCount() {

@@ -14,15 +14,39 @@
             android:icon="@drawable/ic_register"
             android:title="My Profil" />
 
+
         <item
-            android:id="@+id/mInfo"
-            android:icon="@drawable/ic_info"
-            android:title="Informasi" />
+            android:id="@+id/mPromo"
+            android:icon="@drawable/ic_promo"
+            android:title="Promo Informasi" />
+
+
+        <item
+            android:id="@+id/mFasilitas"
+            android:icon="@drawable/ic_fasilitas"
+            android:title="Fasilitas Informasi" />
+
+        <item
+            android:id="@+id/mPerusahaan"
+            android:icon="@drawable/ic_perusahaan"
+            android:title="Perusahaan" />
+
+        <item
+            android:id="@+id/mDokument"
+            android:icon="@drawable/ic_document"
+            android:title="Document Informasi" />
+
+        <item
+            android:id="@+id/mAppsVersion"
+            android:icon="@drawable/ic_document"
+            android:title="Versi Aplikasi V.1" />
 
         <item
             android:id="@+id/mLogout"
             android:icon="@drawable/ic_logout"
             android:title="Logout" />
+
+
 
     </group>
 

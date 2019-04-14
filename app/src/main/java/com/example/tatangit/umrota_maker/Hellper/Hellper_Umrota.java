@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.provider.Settings;
-import android.widget.Toast;
 
 
 public class Hellper_Umrota {
@@ -19,12 +18,6 @@ public class Hellper_Umrota {
         return Integer.toString( Integer.parseInt(Qty) * Integer.parseInt(Harga));
     }
 
-
-
-
-
-
-
     /** CHECK WHETHER INTERNET CONNECTION IS AVAILABLE OR NOT */
     public boolean checkConnection(Context context) {
         final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -32,7 +25,6 @@ public class Hellper_Umrota {
         NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
 
         if (activeNetworkInfo != null) { // connected to the internet
-            Toast.makeText(context, activeNetworkInfo.getTypeName(), Toast.LENGTH_SHORT).show();
 
             if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
                 // connected to wifi

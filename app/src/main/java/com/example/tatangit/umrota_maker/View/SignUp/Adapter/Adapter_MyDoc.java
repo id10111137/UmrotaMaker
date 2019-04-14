@@ -3,6 +3,7 @@ package com.example.tatangit.umrota_maker.View.SignUp.Adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.MessageItem;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_MyDoc;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -20,14 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
+public class Adapter_MyDoc extends ArrayAdapter<MessageItem> {
 
     private Context context;
-    private List<Model_MyDoc> dataSet;
-    private ArrayList<Model_MyDoc> originDataSet;
+    private List<MessageItem> dataSet;
+    private ArrayList<MessageItem> originDataSet;
     private LayoutInflater inflater;
 
-    public Adapter_MyDoc(ArrayList<Model_MyDoc> data, Context mContext) {
+    public Adapter_MyDoc(List<MessageItem> data, Context mContext) {
         super(mContext, R.layout.fragment_gallery_photo_row, data);
         this.dataSet = data;
         inflater = LayoutInflater.from(mContext);
@@ -51,7 +53,7 @@ public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
     }
 
     @Override
-    public Model_MyDoc getItem(int position) {
+    public MessageItem getItem(int position) {
         return dataSet.get(position);
     }
 
@@ -65,7 +67,7 @@ public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Model_MyDoc dataModel = getItem(position);
+        final MessageItem dataModel = getItem(position);
         final ViewHolder viewHolder;
 
         if (convertView == null) {
@@ -84,7 +86,7 @@ public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
         }
 
         assert dataModel != null;
-        Picasso.get().load(dataModel.getUrlImage()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_gallery, new Callback() {
+        Picasso.get().load(dataModel.getUrl()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_gallery, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -96,8 +98,7 @@ public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
             }
         });
 
-        viewHolder.id_txt_image_gallery.setText(dataModel.getNameImage());
-
+        viewHolder.id_txt_image_gallery.setText(dataModel.getNamaFile());
         return convertView;
     }
 
@@ -107,8 +108,8 @@ public class Adapter_MyDoc extends ArrayAdapter<Model_MyDoc> {
         if (charText.length() == 0) {
             dataSet.addAll(originDataSet);
         } else {
-            for (Model_MyDoc wp : originDataSet) {
-                if (wp.getNameImage().toLowerCase(Locale.getDefault())
+            for (MessageItem wp : originDataSet) {
+                if (wp.getNamaFile().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
                 } else {

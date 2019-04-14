@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.Home.Model.MessageItemCompanyStore;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Store;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -20,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter_Store extends ArrayAdapter<Model_Store> {
+public class Adapter_Store extends ArrayAdapter<MessageItemCompanyStore> {
 
     private Context context;
-    private List<Model_Store> dataSet = null;
-    private ArrayList<Model_Store> originDataSet = null;
+    private List<MessageItemCompanyStore> dataSet = null;
+    private ArrayList<MessageItemCompanyStore> originDataSet = null;
     LayoutInflater inflater;
 
-    public Adapter_Store(ArrayList<Model_Store> data, Context context) {
+    public Adapter_Store(List<MessageItemCompanyStore> data, Context context) {
         super(context, R.layout.fragment_store_row, data);
         this.dataSet = data;
         this.context = context;
@@ -50,7 +51,7 @@ public class Adapter_Store extends ArrayAdapter<Model_Store> {
     }
 
     @Override
-    public Model_Store getItem(int position) {
+    public MessageItemCompanyStore getItem(int position) {
         return dataSet.get(position);
     }
 
@@ -63,7 +64,7 @@ public class Adapter_Store extends ArrayAdapter<Model_Store> {
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Model_Store dataModel = getItem(position);
+        final MessageItemCompanyStore dataModel = getItem(position);
         final ViewHolder viewHolder;
         final View result;
 
@@ -87,7 +88,7 @@ public class Adapter_Store extends ArrayAdapter<Model_Store> {
         }
 
         assert dataModel != null;
-        Picasso.get().load(dataModel.getUrl_ImageToko()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_store, new Callback() {
+        Picasso.get().load(String.valueOf(dataModel.getPhoto())).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_store, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -99,9 +100,9 @@ public class Adapter_Store extends ArrayAdapter<Model_Store> {
             }
         });
 
-        viewHolder.id_nama_toko.setText(dataModel.getNama_store());
-        viewHolder.id_store_alamat.setText("Alamat Kami, " + dataModel.getAlamat_store());
-        viewHolder.id_store_jam_oprasional.setText("Jam Oprasional Mulai " + dataModel.getOpen_toko());
+        viewHolder.id_nama_toko.setText(dataModel.getNamaStore());
+        viewHolder.id_store_alamat.setText("Alamat Kami, " + dataModel.getAlamatStore());
+        viewHolder.id_store_jam_oprasional.setText("Jam Oprasional Mulai " + dataModel.getJamKerja());
 
         return convertView;
     }
@@ -112,8 +113,8 @@ public class Adapter_Store extends ArrayAdapter<Model_Store> {
         if (charText.length() == 0) {
             dataSet.addAll(originDataSet);
         } else {
-            for (Model_Store wp : originDataSet) {
-                if (wp.getAlamat_store().toLowerCase(Locale.getDefault())
+            for (MessageItemCompanyStore wp : originDataSet) {
+                if (wp.getNamaStore().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
                 } else {

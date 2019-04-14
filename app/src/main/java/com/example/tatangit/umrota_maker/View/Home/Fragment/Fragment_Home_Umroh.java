@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -56,7 +58,7 @@ public class Fragment_Home_Umroh extends Fragment {
     ListView id_lv_umroh;
 
     @BindView(R.id.id_sv_umroh)
-    SearchView id_sv_umroh;
+    EditText id_sv_umroh;
 
     Adapter_Umroh adapter_umroh;
     ArrayList<Model_Umroh> model_umroh;
@@ -129,19 +131,20 @@ public class Fragment_Home_Umroh extends Fragment {
         box = new DynamicBox(getContext(),id_lv_umroh);
         box.showLoadingLayout();
 
-        id_sv_umroh.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        id_sv_umroh.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                String text = s;
-                adapter_umroh.filter(text);
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_umroh.filter(charSequence.toString());
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                String text = s;
-                adapter_umroh.filter(text);
-                return false;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_umroh.filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 

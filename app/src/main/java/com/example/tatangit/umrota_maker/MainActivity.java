@@ -1,7 +1,6 @@
 package com.example.tatangit.umrota_maker;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -24,8 +23,11 @@ import android.widget.Toast;
 import com.example.tatangit.umrota_maker.Hellper.Hellper_Umrota;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.View.Home.Fragment.Fragment_Home;
+import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Dokumentasi;
+import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Fasilitas;
 import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Information;
-import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
+import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Perusahaan;
+import com.example.tatangit.umrota_maker.View.Information.Fragment.Fragment_Promo;
 import com.example.tatangit.umrota_maker.View.SignUp.Fragment.Fragment_Profil;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
 
@@ -132,10 +134,16 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.mUmrotaHome) {
             fragment = new Fragment_Home();
-        } else if (id == R.id.mInfo) {
-            fragment = new Fragment_Information();
-        } else if (id == R.id.mProfil) {
+        }  else if (id == R.id.mProfil) {
             fragment = new Fragment_Profil();
+        } else if (id == R.id.mPromo) {
+            fragment = new Fragment_Promo();
+        }else if (id == R.id.mFasilitas) {
+            fragment = new Fragment_Fasilitas();
+        } else if (id == R.id.mPerusahaan) {
+            fragment = new Fragment_Perusahaan();
+        } else if (id == R.id.mDokument) {
+            fragment = new Fragment_Dokumentasi();
         } else if (id == R.id.mLogout) {
             UserModelManager.getInstance(getApplicationContext()).LogOut();
         }

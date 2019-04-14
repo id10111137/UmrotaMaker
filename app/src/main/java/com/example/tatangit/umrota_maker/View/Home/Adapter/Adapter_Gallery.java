@@ -12,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.R;
-import com.example.tatangit.umrota_maker.View.Home.Model.Model_Company_Gallery;
+import com.example.tatangit.umrota_maker.View.Home.Model.MessageItemCompanyInfo;
+import com.example.tatangit.umrota_maker.View.Home.Model.MessageItemGalleryCompany;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -20,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
+public class Adapter_Gallery extends ArrayAdapter<MessageItemGalleryCompany>{
 
     private Context context;
-    private List<Model_Company_Gallery> dataSet;
-    private ArrayList<Model_Company_Gallery> originDataSet;
+    private List<MessageItemGalleryCompany> dataSet;
+    private ArrayList<MessageItemGalleryCompany> originDataSet;
     private LayoutInflater inflater;
 
-    public Adapter_Gallery(ArrayList<Model_Company_Gallery> data, Context mContext) {
+    public Adapter_Gallery(List<MessageItemGalleryCompany> data, Context mContext) {
         super(mContext, R.layout.fragment_gallery_photo_row, data);
         this.dataSet = data;
         inflater = LayoutInflater.from(mContext);
@@ -51,7 +52,7 @@ public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
     }
 
     @Override
-    public Model_Company_Gallery getItem(int position) {
+    public MessageItemGalleryCompany getItem(int position) {
         return dataSet.get(position);
     }
 
@@ -65,7 +66,7 @@ public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        final Model_Company_Gallery dataModel = getItem(position);
+        final MessageItemGalleryCompany dataModel = getItem(position);
         final ViewHolder viewHolder;
 
         if (convertView == null) {
@@ -84,7 +85,7 @@ public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
         }
 
         assert dataModel != null;
-        Picasso.get().load(dataModel.getUrl_Image()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_gallery, new Callback() {
+        Picasso.get().load(dataModel.getUrl()).placeholder(R.drawable.ic_noimage).fit().into(viewHolder.id_image_gallery, new Callback() {
             @Override
             public void onSuccess() {
 
@@ -96,7 +97,7 @@ public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
             }
         });
 
-        viewHolder.id_txt_image_gallery.setText(dataModel.getDescription_Image());
+        viewHolder.id_txt_image_gallery.setText(dataModel.getNomorCompany());
 
         return convertView;
     }
@@ -107,8 +108,8 @@ public class Adapter_Gallery extends ArrayAdapter<Model_Company_Gallery>{
         if (charText.length() == 0) {
             dataSet.addAll(originDataSet);
         } else {
-            for (Model_Company_Gallery wp : originDataSet) {
-                if (wp.getDescription_Image().toLowerCase(Locale.getDefault())
+            for (MessageItemGalleryCompany wp : originDataSet) {
+                if (wp.getNomorCompanyGallery().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     dataSet.add(wp);
                 } else {

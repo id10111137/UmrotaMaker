@@ -7,10 +7,12 @@
     android:padding="@dimen/m_10dp">
 
 
-    <SearchView
+    <EditText
         android:id="@+id/id_sv_umroh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_search"
+        android:background="@drawable/edt_form"
         android:queryHint="cari umroh" />
 
     <ListView

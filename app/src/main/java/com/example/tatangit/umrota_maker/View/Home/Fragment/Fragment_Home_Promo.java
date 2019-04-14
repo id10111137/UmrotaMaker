@@ -7,11 +7,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -56,7 +59,7 @@ public class Fragment_Home_Promo extends Fragment {
 
 
     @BindView(R.id.id_sv_promo)
-    SearchView id_sv_promo;
+    EditText id_sv_promo;
 
     Adapter_Promo adapter_promo;
 
@@ -101,16 +104,6 @@ public class Fragment_Home_Promo extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-//        toolbar_iconView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(getContext(), Activity_Chart.class);
-//                startActivity(intent);
-//            }
-//        });
-
 
         DynamicBox box = new DynamicBox(getContext(),id_lv_promo);
         box.showLoadingLayout();
@@ -157,21 +150,23 @@ public class Fragment_Home_Promo extends Fragment {
             }
         });
 
-        id_sv_promo.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        id_sv_promo.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                String text = s;
-                adapter_promo.filter(text);
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_promo.filter(charSequence.toString());
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                String text = s;
-                adapter_promo.filter(text);
-                return false;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_promo.filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
+
         return root;
     }
 }

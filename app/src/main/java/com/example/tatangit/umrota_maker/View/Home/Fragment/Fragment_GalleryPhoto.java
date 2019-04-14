@@ -9,35 +9,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
+import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
+import com.example.tatangit.umrota_maker.Hellper.ShareData;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Gallery;
+import com.example.tatangit.umrota_maker.View.Home.Model.MessageItemCompanyInfo;
+import com.example.tatangit.umrota_maker.View.Home.Model.MessageItemGalleryCompany;
+import com.example.tatangit.umrota_maker.View.Home.Model.ModelGalleryCompany;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Company_Gallery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import mehdi.sakout.dynamicbox.DynamicBox;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fragment_GalleryPhoto extends Fragment {
 
 
-    Intent intent;
+    Intent mIntent;
     Toolbar toolbar;
     TextView mTitle;
     CircleImageView toolbar_iconView;
     View root;
     ArrayList<Model_Company_Gallery> model_company_galleries;
-    public String Nomor_Company;
+    Umrota_Service mUmrotaService;
+    Adapter_Gallery adapter_gallery;
+
+    @BindView(R.id.customgrid)
+    GridView gridView;
+    DynamicBox box;
 
 
     public Fragment_GalleryPhoto() {
     }
-
-    @BindView(R.id.customgrid)
-    GridView gridView;
 
 
     @Override
@@ -46,38 +59,36 @@ public class Fragment_GalleryPhoto extends Fragment {
         root = inflater.inflate(R.layout.fragment_gallery_photo, container, false);
         ButterKnife.bind(this, root);
         toolbar = getActivity().findViewById(R.id.toolbar);
-
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
         toolbar_iconView.setImageDrawable(null);
+        mUmrotaService = Api_Utils.getSOService();
         DummyData();
-        DynamicBox box = new DynamicBox(getContext(),gridView);
+        box = new DynamicBox(getContext(),gridView);
         box.showLoadingLayout();
-
-        gridView.setAdapter(new Adapter_Gallery(model_company_galleries,getContext()));
         return root;
     }
 
     private void DummyData() {
-        model_company_galleries = new ArrayList<>();
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
-        model_company_galleries.add(new Model_Company_Gallery("123456789", "http://images2.fanpop.com/images/photos/7200000/Beatiful-Foxes-foxes-7244944-1600-1200.jpg", "Foxes", "987654321"));
+        mUmrotaService.gGallery(ShareData.data().value).enqueue(new Callback<ModelGalleryCompany>() {
+            @Override
+            public void onResponse(Call<ModelGalleryCompany> call, Response<ModelGalleryCompany> response) {
+                if (response.isSuccessful()){
 
+                    final List<MessageItemGalleryCompany> messageItemGalleryCompanies = response.body().getMessage();
+                    adapter_gallery = new Adapter_Gallery(messageItemGalleryCompanies, getContext());
+                    adapter_gallery.notifyDataSetChanged();
+                    gridView.setAdapter(adapter_gallery);
+
+                } else {
+                    Toast.makeText(getContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelGalleryCompany> call, Throwable t) {
+                Toast.makeText(getContext(), "Check Koneksi", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

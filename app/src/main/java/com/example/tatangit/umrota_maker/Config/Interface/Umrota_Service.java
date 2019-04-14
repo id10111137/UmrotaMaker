@@ -1,26 +1,24 @@
 package com.example.tatangit.umrota_maker.Config.Interface;
 
-import android.database.Observable;
-
 import com.example.tatangit.umrota_maker.Config.Model.M_Company;
 import com.example.tatangit.umrota_maker.Config.Model.M_Company_Umroh;
 import com.example.tatangit.umrota_maker.Config.Model.M_Promo;
 import com.example.tatangit.umrota_maker.Config.Model.M_Register;
+import com.example.tatangit.umrota_maker.View.Home.Model.ModelCompanyInfo;
+import com.example.tatangit.umrota_maker.View.Home.Model.ModelCompanyStore;
+import com.example.tatangit.umrota_maker.View.Home.Model.ModelGalleryCompany;
+import com.example.tatangit.umrota_maker.View.Home.Model.Model_Company_Gallery;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.ModelUploadDoc;
 import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_User;
-import com.example.tatangit.umrota_maker.View.SignUp.Model.Response;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.RUploadImage;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Part;
 
 public interface Umrota_Service {
 
@@ -91,9 +89,30 @@ public interface Umrota_Service {
     );
 
 
-    @Multipart
+    @FormUrlEncoded
     @POST("Umrota_Costumer/Upload_Document")
-    Call<Response> uDocument(@Part MultipartBody.Part image, @Part("file") RequestBody name);
+    Call<RUploadImage> uImage(
+            @Field("imageurl") String imageurl,
+            @Field("NameImage") String NameImage,
+            @Field("CreateDate") String CreateDate,
+            @Field("nomor_costumer") String nomor_costumer);
 
+
+    @FormUrlEncoded
+    @POST("Umrota_Costumer/Ambil_Gambar")
+    Call<ModelUploadDoc> gGambar(@Field("nomor_costumer") String nomor_costumer);
+
+
+    @FormUrlEncoded
+    @POST("Umrota_Company/AmbilGallery")
+    Call<ModelGalleryCompany> gGallery(@Field("nomor_company") String nomor_company);
+
+    @FormUrlEncoded
+    @POST("Umrota_Company/AmbilCompanyInfo")
+    Call<ModelCompanyInfo> gCompanyInfo(@Field("nomor_company") String nomor_company);
+
+    @FormUrlEncoded
+    @POST("Umrota_Company/AmbilCompanyStore")
+    Call<ModelCompanyStore> gCompanyStore(@Field("nomor_company") String nomor_company);
 
 }

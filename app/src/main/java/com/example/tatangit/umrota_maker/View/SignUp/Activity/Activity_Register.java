@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -72,6 +73,7 @@ public class Activity_Register extends AppCompatActivity {
             mUmrotaService.RegisterCostumer(id_namacostumer.getText().toString(), id_username.getText().toString(), id_password.getText().toString(), id_email.getText().toString(), id_phone.getText().toString()).enqueue(new Callback<M_Register>() {
                 @Override
                 public void onResponse(Call<M_Register> call, Response<M_Register> response) {
+                    Log.d("Tampilkan",""+response.message().toString());
                     if (response.isSuccessful()) {
                         pDialog.dismiss();
                         Toast.makeText(Activity_Register.this, "Terima Kasih Pendaftaran Sudah Berhasil, Silahkan Login ", Toast.LENGTH_SHORT).show();

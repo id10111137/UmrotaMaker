@@ -134,7 +134,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/m_30dp"
         android:layout_marginBottom="@dimen/m_30dp"
-        android:background="@drawable/bottom"
+        android:background="@drawable/bottom_signup"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp">
