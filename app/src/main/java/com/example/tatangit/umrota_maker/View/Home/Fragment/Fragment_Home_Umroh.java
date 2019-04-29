@@ -29,6 +29,7 @@ import com.example.tatangit.umrota_maker.Config.Model.M_Company;
 import com.example.tatangit.umrota_maker.Config.Model.M_Company_Item;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Char;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Umroh;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Umroh;
@@ -93,7 +94,16 @@ public class Fragment_Home_Umroh extends Fragment {
                     }
                 });
             }else{
-                toolbar_iconView.setImageDrawable(null);
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_shooping));
+                toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(getContext(), Activity_Char.class);
+                        startActivity(intent);
+                    }
+                });
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();

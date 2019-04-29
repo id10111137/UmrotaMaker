@@ -95,6 +95,8 @@ public class Fragment_Store extends Fragment {
         return root;
     }
 
+
+
     private void DummyData() {
 
         mUmrotaService.gCompanyStore(ShareData.data().value).enqueue(new Callback<ModelCompanyStore>() {

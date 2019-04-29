@@ -29,6 +29,7 @@ import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.AddChart.Activity.Activity_Chart;
 import com.example.tatangit.umrota_maker.View.CheckOut.Activity.Activity_Checkout;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Char;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_DCompany;
 import com.example.tatangit.umrota_maker.View.Home.Adapter.Adapter_Promo;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_Promo;
@@ -99,7 +100,14 @@ public class Fragment_Home_Promo extends Fragment {
                     }
                 });
             }else{
-                toolbar_iconView.setImageDrawable(null);
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_shooping));
+                toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(getContext(), Activity_Char.class);
+                        startActivity(intent);
+                    }
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,13 +127,13 @@ public class Fragment_Home_Promo extends Fragment {
                     id_lv_promo.setAdapter(adapter_promo);
 
                 } else {
-                    Toast.makeText(getContext(), "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Gagal Mengambil Data", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<M_Promo> call, Throwable t) {
-                Toast.makeText(getContext(), "Koneksi Tidak Bagus", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Internet Anda Kurang Bagus", Toast.LENGTH_SHORT).show();
             }
         });
 

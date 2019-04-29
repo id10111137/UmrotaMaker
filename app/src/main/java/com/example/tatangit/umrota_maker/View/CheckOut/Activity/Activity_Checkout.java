@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
 import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
 import com.example.tatangit.umrota_maker.R;
 import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Billing;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Char;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID;
 import com.example.tatangit.umrota_maker.View.Home.Model.Model_UmrohByID_Item;
 import com.squareup.picasso.Picasso;
@@ -58,8 +60,8 @@ public class Activity_Checkout extends AppCompatActivity {
     @BindView(R.id.id_hotel)
     TextView id_hotel;
 
-    @BindView(R.id.id_kapasitas)
-    TextView id_kapasitas;
+    @BindView(R.id.id_promo)
+    TextView id_promo;
 
     @BindView(R.id.id_deskripsi)
     TextView id_deskripsi;
@@ -69,8 +71,6 @@ public class Activity_Checkout extends AppCompatActivity {
 
     @BindView(R.id.id_img_checkout)
     ImageView id_img_checkout;
-
-
 
 
     @Override
@@ -86,12 +86,16 @@ public class Activity_Checkout extends AppCompatActivity {
 
         nomor_umroh = getIntent().getStringExtra("no_umroh");
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Checkout");
+        mTitle.setText("Pengecekan Pesanan");
         toolbar_iconView = toolbar.findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(getApplication().getResources().getDrawable(R.drawable.ic_info));
-        toolbar_iconView.setOnClickListener(null);
-
-
+        toolbar_iconView.setImageDrawable(getResources().getDrawable(R.drawable.ic_shooping));
+        toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getApplicationContext(), Activity_Char.class);
+                startActivity(intent);
+            }
+        });
 
         mUmrotaService.getUmrohByID(nomor_umroh.toString()).enqueue(new Callback<Model_UmrohByID>() {
             @Override
@@ -118,7 +122,7 @@ public class Activity_Checkout extends AppCompatActivity {
                         id_jadwal_kepulangan.setText(model_umrohByID_items.get(i).getKepulangan());
                         id_harga.setText(model_umrohByID_items.get(i).getHargaUmroh());
                         id_hotel.setText(model_umrohByID_items.get(i).getHotel());
-                        id_kapasitas.setText(model_umrohByID_items.get(i).getMaxOrangUmroh());
+                        id_promo.setText(model_umrohByID_items.get(i).getDiscountPercent());
                         id_deskripsi.setText(model_umrohByID_items.get(i).getDetailUmroh());
 
                     }

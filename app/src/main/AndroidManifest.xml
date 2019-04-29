@@ -63,6 +63,13 @@
             android:name=".View.Home.Activity.Activity_Billing"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".View.Home.Activity.Activity_Char"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".View.Home.Activity.Activity_DCompany"
             android:screenOrientation="portrait"
@@ -80,38 +87,7 @@
 
 
         <activity
-            android:name=".View.Information.Activity.Activity_Info_Promo"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-
-        <activity
             android:name=".View.Home.Activity.Activity_Persiapan_Haji"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".View.Information.Activity.Activity_Info_Fasiltas"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".View.Information.Activity.Activity_Info_Corpo"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".View.Information.Activity.Activity_Info_Document"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".View.Information.Activity.Activity_Info_Manasik"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".View.Information.Activity.Activity_Info_Agent"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 

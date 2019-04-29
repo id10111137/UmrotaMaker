@@ -22,73 +22,71 @@
             app:intervalSecond="5"
             app:loopSlides="true" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-40dp"
+            android:background="@drawable/form"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hai, Example"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp" />
+
+            <TextView
+                android:id="@+id/id_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang Di Umrota Apps"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_15dp" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m_10dp"
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/id_persiapan_haji"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="@drawable/persiapan_haji"
-                    android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/m_5dp"
+            android:layout_marginLeft="@dimen/m_10dp"
+            android:layout_marginRight="@dimen/m_10dp">
 
 
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/id_fikih_haji"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/fikih_haji"
-                    android:gravity="center"
-                    android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
 
+                <ImageView
+                    android:layout_width="@dimen/m_30dp"
+                    android:layout_height="@dimen/m_30dp"
+                    android:src="@drawable/ic_checklist" />
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Umroh~Hajj"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_15dp"
+                    android:textStyle="bold" />
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/id_fikih_umroh"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/fikih_umroh"
-                    android:gravity="center"
-                    android:orientation="vertical">
+            </LinearLayout>
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent" />
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
@@ -101,8 +99,8 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/id_dzikir_doa"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -110,19 +108,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@drawable/doa"
+                    android:gravity="center"
                     android:orientation="vertical">
-
 
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/id_tata_Cara_umroh"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/id_persiapan_haji"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -130,17 +127,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/persiapan_haji"
                     android:gravity="center"
-                    android:background="@drawable/tata_umroh"
                     android:orientation="vertical">
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/id_tata_cara_haji"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/id_fikih_haji"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -148,14 +146,69 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/fikih_haji"
                     android:gravity="center"
-                    android:background="@drawable/tata_haji"
                     android:orientation="vertical">
-
 
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/id_fikih_umroh"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/fikih_umroh"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/m_10dp"
+            android:layout_marginRight="@dimen/m_10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="@dimen/m_30dp"
+                    android:layout_height="@dimen/m_30dp"
+                    android:src="@drawable/ic_checklist" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pembahasan Umroh~Hajj"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/m_15dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent" />
+
 
         </LinearLayout>
 
@@ -166,12 +219,10 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-
-
             <android.support.v7.widget.CardView
                 android:id="@+id/id_lokasi_ziaroh"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -179,17 +230,71 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@drawable/lokasi"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
+            <android.support.v7.widget.CardView
+                android:id="@+id/id_tata_Cara_umroh"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tata_umroh"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/id_tata_cara_haji"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tata_haji"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/id_discount"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_discount"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
         </LinearLayout>
-
 
     </LinearLayout>
 

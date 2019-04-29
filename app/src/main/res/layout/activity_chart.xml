@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/m_10dp"
     android:orientation="vertical">
 
-    <include
-        layout="@layout/action_bar"
+
+    <!--<LinearLayout-->
+    <!--android:orientation="vertical"-->
+    <!--android:id="@+id/top_menu"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content" >-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--<ListView-->
+    <!--android:id="@android:id/list"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1" />-->
+
+
+    <EditText
+        android:id="@+id/id_svd_umroh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_form"
+        android:drawableLeft="@drawable/ic_search"
+        android:queryHint="Cari Perusahaan" />
+
+
+    <ListView
+        android:id="@+id/id_lv_dCompany"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+
+    <LinearLayout
+        android:id="@+id/id_goLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/m_30dp"
+        android:background="@drawable/form"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bayar Segera"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/m_15dp" />
+    </LinearLayout>
+
 
 </LinearLayout>

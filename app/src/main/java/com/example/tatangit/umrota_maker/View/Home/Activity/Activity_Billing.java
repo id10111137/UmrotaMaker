@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
 import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
+import com.example.tatangit.umrota_maker.Hellper.Calendars;
 import com.example.tatangit.umrota_maker.Hellper.Hellper_Umrota;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
 import com.example.tatangit.umrota_maker.R;
@@ -57,6 +59,26 @@ public class Activity_Billing extends AppCompatActivity {
     @BindView(R.id.id_jadwalkepulangan)
     TextView id_jadwalkepulangan;
 
+    @BindView(R.id.id_bookingdate)
+    TextView id_bookingdate;
+
+    @BindView(R.id.id_tlp_nomor)
+    TextView id_tlp_nomor;
+
+    @BindView(R.id.id_emial)
+    TextView id_emial;
+
+    @BindView(R.id.id_alamat)
+    TextView id_alamat;
+
+
+
+
+
+
+
+
+
 
     public String nomor_umroh;
     public String qty;
@@ -64,6 +86,7 @@ public class Activity_Billing extends AppCompatActivity {
     Model_UserItem model_userItem;
 
     Hellper_Umrota hellper_umrota;
+    Calendars calendars;
     AccordionView accordionView;
 
 
@@ -75,6 +98,7 @@ public class Activity_Billing extends AppCompatActivity {
         setContentView(R.layout.activity_billing);
         mUmrotaService = Api_Utils.getSOService();
         ButterKnife.bind(this);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -83,19 +107,31 @@ public class Activity_Billing extends AppCompatActivity {
         nomor_umroh = getIntent().getStringExtra("nomor_umroh");
         qty = getIntent().getStringExtra("qty");
         accordionView = new AccordionView(getApplicationContext());
+        this.calendars = new Calendars();
 
 
         model_userItem = UserModelManager.getInstance(getApplicationContext()).getUser();
+        /*
+            Profil Pemesan
+         */
         id_myaccount.setText(model_userItem.getNamaCostumer());
         id_total_booking.setText(qty);
+        id_tlp_nomor.setText(model_userItem.getNomorTlp());
+        id_emial.setText(model_userItem.getEmail());
+        id_alamat.setText(model_userItem.getAlamatCostumer());
+
 
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText("Billing Pembayaran");
         toolbar_iconView = toolbar.findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(getApplication().getResources().getDrawable(R.drawable.ic_info));
-        toolbar_iconView.setOnClickListener(null);
-
-
+        toolbar_iconView.setImageDrawable(getResources().getDrawable(R.drawable.ic_shooping));
+        toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getApplicationContext(), Activity_Char.class);
+                startActivity(intent);
+            }
+        });
 
         mUmrotaService.getUmrohByID(nomor_umroh).enqueue(new Callback<Model_UmrohByID>() {
             @Override
@@ -110,6 +146,8 @@ public class Activity_Billing extends AppCompatActivity {
                         id_jadwalkeberangkatan.setText(model_umrohByID_items.get(i).getKeberangkatan());
                         id_promo.setText(model_umrohByID_items.get(i).getDiscountPercent());
                         id_jadwalkepulangan.setText(model_umrohByID_items.get(i).getKepulangan());
+                        id_bookingdate.setText(calendars.getDay()+"-"+calendars.getMonth()+"-"+calendars.getYearh()+" "+calendars.getHour()+":"+calendars.getMinute()+":"+calendars.getSecond());
+
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Data Belum Ditemukan", Toast.LENGTH_SHORT).show();

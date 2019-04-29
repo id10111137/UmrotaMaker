@@ -196,8 +196,9 @@ public class Fragment_MyDoc extends Fragment {
                         PERMISSION_STORAGE);
             } else {
                 Uri filePath = data.getData();
+                Log.d("Tampilkan",""+getPath(filePath));
+                Log.d("Tampilkan",""+filePath);
                 ImageName = getFileName(filePath);
-                Log.d("Tampilkan", "" + ImageName);
                 bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), filePath);
                 ImageView id_priview = dialogView.findViewById(R.id.id_priview);
 //                Uri tempUri = getImageUri(getContext(), bitmap);
@@ -224,12 +225,11 @@ public class Fragment_MyDoc extends Fragment {
                         PERMISSION_STORAGE);
             } else {
                 Uri filePath = data.getData();
+                Log.d("Tampilkan",""+getPath(filePath));
                 ImageName = getFileName(filePath);
-                Log.d("Tampilkan", "" + ImageName);
                 bitmap = (Bitmap) data.getExtras().get("data");
                 ImageView id_priview = dialogView.findViewById(R.id.id_priview);
-                //Uri tempUri = getImageUri(getContext(), bitmap);
-                //UploadImage(getRealPathFromURI(tempUri));
+
                 id_priview.setVisibility(View.VISIBLE);
                 id_priview.setImageBitmap(bitmap);
 
@@ -240,25 +240,46 @@ public class Fragment_MyDoc extends Fragment {
 
     }
 
+    public String getPath(Uri uri)
+    {
+        String result = null;
+
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = getContext().getContentResolver().query(uri, projection, null, null, null);
+        int col = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+        if (col >= 0 && cursor.moveToFirst())
+            result = cursor.getString(col);
+        cursor.close();
+
+        return result;
+
+
+    }
+
     private void uImage() {
+
 
         mUmrotaService.uImage(imgToString(bitmap), ImageName, calendars.getYearh() + "-" + calendars.getMonth() + "-" + calendars.getDay(), model_userItem.getNomorCostumer()).enqueue(new Callback<RUploadImage>() {
             @Override
             public void onResponse(Call<RUploadImage> call, Response<RUploadImage> response) {
+
                 if (response.isSuccessful()) {
+                    Log.d("Tampilkan",""+response.message());
                     DummyData();
                 } else {
-                    Toast.makeText(getContext(), "Gagal Mengambil Data" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.d("Tampilkan",""+response.message());
+                    Toast.makeText(getContext(), "Respons Jelek", Toast.LENGTH_SHORT).show();
+                    DummyData();
                 }
+                
             }
 
             @Override
             public void onFailure(Call<RUploadImage> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Koneksi Data Kurang Bagus", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
     public String getFileName(Uri uri) {
         String result = null;
@@ -281,7 +302,6 @@ public class Fragment_MyDoc extends Fragment {
         }
         return result;
     }
-
 
     private String imgToString(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

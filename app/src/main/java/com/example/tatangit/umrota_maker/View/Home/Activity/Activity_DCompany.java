@@ -5,9 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -48,7 +51,7 @@ public class Activity_DCompany extends AppCompatActivity {
 
 
     @BindView(R.id.id_svd_umroh)
-    SearchView id_svd_umroh;
+    EditText id_svd_umroh;
     SweetAlertDialog pDialog;
 
     @Override
@@ -67,7 +70,7 @@ public class Activity_DCompany extends AppCompatActivity {
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
         mTitle.setText(nama_perusahaan);
         toolbar_iconView = toolbar.findViewById(R.id.id_icon_toolbar);
-        toolbar_iconView.setImageDrawable(getApplication().getResources().getDrawable(R.drawable.ic_info));
+        toolbar_iconView.setImageDrawable(getApplication().getResources().getDrawable(R.drawable.ic_information));
         toolbar_iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,19 +122,20 @@ public class Activity_DCompany extends AppCompatActivity {
         });
 
 
-        id_svd_umroh.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        id_svd_umroh.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                String text = s;
-                adapter_dCompany.filter(text);
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_dCompany.filter(charSequence.toString());
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                String text = s;
-                adapter_dCompany.filter(text);
-                return false;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter_dCompany.filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
     }

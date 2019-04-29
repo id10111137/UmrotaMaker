@@ -19,8 +19,11 @@ import android.widget.TextView;
 import com.example.tatangit.umrota_maker.Config.Api.Api_Utils;
 import com.example.tatangit.umrota_maker.Config.Interface.Umrota_Service;
 import com.example.tatangit.umrota_maker.Hellper.UserModelManager;
+import com.example.tatangit.umrota_maker.MainActivity;
 import com.example.tatangit.umrota_maker.R;
+import com.example.tatangit.umrota_maker.View.Home.Activity.Activity_Char;
 import com.example.tatangit.umrota_maker.View.SignUp.Activity.Activity_Login;
+import com.example.tatangit.umrota_maker.View.SignUp.Model.Model_UserItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,12 +47,13 @@ public class Fragment_Home_Index extends Fragment {
     View dialogView;
     AlertDialog alertDialog = null;
 
-
-//    Slider slider = findViewById(R.id.slider);
-
     @BindView(R.id.slider)
     Slider slider;
 
+    @BindView(R.id.id_nama)
+    TextView id_nama;
+
+    Model_UserItem model_userItem;
 
     public Fragment_Home_Index() {
     }
@@ -60,11 +64,15 @@ public class Fragment_Home_Index extends Fragment {
                              Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_home_index, container, false);
         ButterKnife.bind(this, root);
+        model_userItem = UserModelManager.getInstance(getContext()).getUser();
         toolbar = getActivity().findViewById(R.id.toolbar);
         mTitle = toolbar.findViewById(R.id.id_title_toolbar);
-        mTitle.setText("Ayo Kita Haji~Umroh");
+        mTitle.setText("Haji~Umroh");
         mUmrotaService = Api_Utils.getSOService();
         toolbar_iconView = getActivity().findViewById(R.id.id_icon_toolbar);
+        id_nama.setText("Hai, "+model_userItem.getNamaCostumer());
+
+
         try {
 
             if (!UserModelManager.getInstance(getContext()).isLoggedIn()) {
@@ -77,7 +85,14 @@ public class Fragment_Home_Index extends Fragment {
                     }
                 });
             } else {
-                toolbar_iconView.setImageDrawable(null);
+                toolbar_iconView.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_shooping));
+                toolbar_iconView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mIntent = new Intent(getContext(), Activity_Char.class);
+                        startActivity(mIntent);
+                    }
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -14,17 +14,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/id_total_harga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RP.0"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/m_50dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="@dimen/m_20dp"
+            android:layout_marginRight="@dimen/m_20dp"
+            android:background="@drawable/form_drawable"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_total_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RP.0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/m_30dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -45,27 +56,48 @@
                 android:id="@+id/linear2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="@dimen/m_5dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Informasi Pemesanan"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/m_15dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/m_30dp"
+                        android:layout_height="@dimen/m_30dp"
+                        android:src="@drawable/ic_checklist" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Informasi Pemesanan"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/m_15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Judul Umroh"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -73,45 +105,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Umroh Bersama Kami"
-                        android:textColor="@color/colorAccent"
+                        android:text="Example"
                         android:textSize="12dp" />
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Account Saya"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/id_myaccount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="Tn, Tatang Roswandi Ganda Wijaya"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Total Pemesanan"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -119,8 +128,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="24 Orang"
-                        android:textColor="@color/colorAccent"
+                        android:text="0"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -128,13 +136,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Harga"
-                        android:textColor="@color/colorAccent"
+                        android:text="Harga Per-Orang"
                         android:textSize="12dp" />
 
                     <TextView
@@ -143,7 +151,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="Rp.0"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -152,13 +159,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Waktu Pemesanan"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -166,8 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="29 oktober 1992, jam 12:45"
-                        android:textColor="@color/colorAccent"
+                        android:text="dd-mm-yyyy HH:ss"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -175,13 +181,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nama Perusahaan"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -189,8 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="Pt. Ganda Wijaya Berkah"
-                        android:textColor="@color/colorAccent"
+                        android:text="Example"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -198,13 +203,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Keberangkatan"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -212,8 +217,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="29 oktober 2019"
-                        android:textColor="@color/colorAccent"
+                        android:text="dd-mm-yyyy"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -221,13 +225,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Kepulangan"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -235,8 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="10 November 2019"
-                        android:textColor="@color/colorAccent"
+                        android:text="dd-mm-yyyy"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -244,13 +247,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Promo"
-                        android:textColor="@color/colorAccent"
                         android:textSize="12dp" />
 
                     <TextView
@@ -258,8 +261,154 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="0 promo"
+                        android:text="0"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dwon Payment (DP)"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Rp. 0"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m_10dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="@dimen/m_5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/m_30dp"
+                        android:layout_height="@dimen/m_30dp"
+                        android:src="@drawable/ic_checklist" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profil Pemesan"
                         android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/m_15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Pemesanan"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_myaccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Tn, Example"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Telp"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_tlp_nomor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="+62xxxx"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email Pemesan"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_emial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Example@gmail.com"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/m_10dp"
+                    android:layout_marginTop="@dimen/m_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat Pemesan"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/id_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Jl. Example"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -269,105 +418,79 @@
                 android:id="@+id/linear3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="@dimen/m_5dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="@dimen/m_5dp">
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/m_30dp"
+                        android:layout_height="@dimen/m_30dp"
+                        android:src="@drawable/ic_checklist" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Metode Pembayaran"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/m_15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorAccent" />
+
+                <RadioGroup
+                    android:id="@+id/id_metode_pembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Metode Pembayaran"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/m_15dp"
-                    android:textStyle="bold" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/id_bni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Bank Negara Indonesia (BNI)" />
+
+                    <RadioButton
+                        android:id="@+id/id_mandiri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Mandiri" />
+
+                    <RadioButton
+                        android:id="@+id/id_bca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Central Asia (BCA)" />
+
+                    <RadioButton
+                        android:id="@+id/id_bri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Rakyat Indonesia (BRI)" />
+                </RadioGroup>
+
             </LinearLayout>
-
-
-            <com.riyagayasen.easyaccordion.AccordionView
-                android:id="@+id/id_pBankTransfer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:heading="Pembayaran Debit"
-                app:isAnimated="false"
-                app:isExpanded="false"
-                app:isPartitioned="true">
-
-                <RadioGroup
-                    android:id="@+id/radioPayment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/textView1"
-                    android:checked="false">
-
-                    <RadioButton
-                        android:id="@+id/id_rd_bni"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bank Transfer BNI"
-                        android:textColor="@color/colorAccent" />
-
-                    <RadioButton
-                        android:id="@+id/id_rd_mandiri"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bank Transfer Mandiri"
-                        android:textColor="@color/colorAccent" />
-
-                    <RadioButton
-                        android:id="@+id/id_rd_bca"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bank Transfer BCA"
-                        android:textColor="@color/colorAccent" />
-
-                </RadioGroup>
-
-
-            </com.riyagayasen.easyaccordion.AccordionView>
-
-            <com.riyagayasen.easyaccordion.AccordionView
-                android:id="@+id/id_pTransferMiniMarket"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:heading="Transfer Mini Market"
-                app:isAnimated="false"
-                app:isExpanded="false"
-                app:isPartitioned="true">
-
-
-                <RadioGroup
-                    android:id="@+id/rd_gp_mini_market"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/textView1">
-
-                    <RadioButton
-                        android:id="@+id/id_rd_indomart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Payment Indomart"
-                        android:textColor="@color/colorAccent" />
-
-                    <RadioButton
-                        android:id="@+id/id_rd_alfa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Payment Alfa"
-                        android:textColor="@color/colorAccent" />
-
-                </RadioGroup>
-
-
-            </com.riyagayasen.easyaccordion.AccordionView>
 
             <LinearLayout
                 android:id="@+id/id_gobayar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/m_30dp"
+                android:layout_marginTop="@dimen/m_5dp"
                 android:background="@drawable/bottom_signup"
                 android:gravity="center"
                 android:orientation="horizontal"

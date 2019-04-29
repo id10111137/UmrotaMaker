@@ -17,7 +17,7 @@
 
         <item
             android:id="@+id/mPromo"
-            android:icon="@drawable/ic_promo"
+            android:icon="@drawable/group_416"
             android:title="Promo Informasi" />
 
 
